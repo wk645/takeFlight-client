@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input, Button, Container, Header } from 'semantic-ui-react'
-// import DatePicker from 'react-datepicker';
+// import { Redirect } from 'react-router-dom'
 
 export default class Search extends React.Component {
 
