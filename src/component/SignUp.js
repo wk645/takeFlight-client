@@ -5,7 +5,7 @@ export default class SignUp extends React.Component {
 
 
 	state = {
-		name: "",
+		fullname: "",
 		email: "",
 		username: "",
 		password: "",
@@ -15,7 +15,7 @@ export default class SignUp extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		this.props.signupUser(this.state)
+		this.props.signUpUser(this.state)
 	}
 
 	handleChange = (event) => {
@@ -27,7 +27,7 @@ export default class SignUp extends React.Component {
 
 	render() {
 
-	// console.log("Sign up props", this.props.signupUser)
+	// console.log("Sign up props", this.props.signUpUser)
 
 		return (
 			<div>
@@ -37,7 +37,7 @@ export default class SignUp extends React.Component {
 				<Grid.Column>
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Field>
-					<input type="text" name="name" onChange={this.handleChange} placeholder="full name" />
+					<input type="text" name="fullname" onChange={this.handleChange} placeholder="full name" />
 					</Form.Field>
 					<Form.Field>
 					<input type="text" name="email" onChange={this.handleChange} placeholder="e-mail address" />

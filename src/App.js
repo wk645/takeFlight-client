@@ -3,7 +3,7 @@ import './App.css';
 import Home from './component/Home'
 import Flights from './component/Flights'
 import Search from './component/Search'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import SignUp from './component/SignUp'
 import Auth from './adapters/auth'
 import NavBar from './component/NavBar'
@@ -31,10 +31,16 @@ class App extends Component {
       method: 'GET'
     }
 
-    fetch(`https://api.test.sabre.com/v2/shop/flights/fares?origin=${from}&departuredate=${departDate}&returndate=${returnDate}&theme=${theme}&maxfare=${budget}&topdestinations=${top}`, options)
+    fetch(`https://api.test.sabre.com/v2/shop/flights/fares?origin=${from}&departuredate=${departDate}&returndate=${returnDate}&theme=${theme.toUpperCase()}&maxfare=${budget}&topdestinations=${top}`, options)
     .then(res => res.json())
-    // .then(data => console.log(data.FareInfo))
     .then(data => this.setState({ origins: data.OriginLocation, fareInfos: data.FareInfo, links: data.links }))
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('jwt')) {
+      return Auth.userInfo()
+      .then(json => this.setState({ currentUser: json.user }))
+    }
   }
 
   signUpUser = (userParams) => {
@@ -43,7 +49,7 @@ class App extends Component {
     .then(res => {
       if (res.success) {
         localStorage.setItem('jwt', res.jwt)
-        this.msg.success('You are now a member at takeFlight!')
+        // this.msg.success('You are now a member of takeFlight!')
         this.setState({ currentUser: res.user })
       } else {
         return res
@@ -58,22 +64,32 @@ class App extends Component {
         return res
       } else {
           localStorage.setItem('jwt', res.jwt)
-          this.msg.success(`Welcome back ${res.user.username}!`)
+          // this.msg.success(`Welcome back ${res.user.username}!`)
           this.setState({ currentUser: res.user })
       }
     })
   }
 
+  checkLoggedIn = (target) => {
+    return localStorage.getItem('jwt') ? (
+      <Redirect to="/" />
+    ) : (
+      target
+    )
+  }
+
   render() {
+
   return (
       <div>
         <NavBar currentUser={this.state.currentUser} />
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/" render={() => <Search fetchCB={this.fetchFlights} />} />
 
-        <Route exact path="/login" render={() => <Login loginUser={this.loginUser} />} />
-        <Route exact path="/signup" render={() => <SignUp signupUser={this.signupUser} />} />
+        <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
+        <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
         <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} />} />
+
         <Flights fareInfos={this.state.fareInfos} links={this.state.links} />
       </div>
     );
@@ -81,7 +97,4 @@ class App extends Component {
 }
 
 export default App;
-
-
-// search
 
