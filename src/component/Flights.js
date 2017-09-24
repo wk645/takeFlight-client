@@ -5,13 +5,12 @@ import { Card } from 'semantic-ui-react'
 const Flights = (props) => {
 
 	// console.log("Flights props", props.fareInfos)
-	// debugger
 	
-	let flight = props.fareInfos.map((flight, index) => <Flight key={index} fareInfos={flight}/>)
+	// let flight = <Flight fareInfos={flight}/>
 
 	return (
 		<Card.Group>
-			{flight}
+			{props.fareInfos.length === 0 ? null : <Flight fareInfos={props.fareInfos}/> }
 		</Card.Group>
 	)
 }

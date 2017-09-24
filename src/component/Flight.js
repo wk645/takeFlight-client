@@ -3,19 +3,18 @@ import { Card } from 'semantic-ui-react'
 
 const Flight = (props) => {
 
-	let departure = props.fareInfos.DepartureDateTime.split("T")[0]
-
-	let returnDate = props.fareInfos.ReturnDateTime.split("T")[0]
+	// console.log("Flight props", props)
+	// only the last FareInfos gets passed down to Flight
 
 	return (
 		<Card>
 			<Card.Content>
-			<p>Ranking: {props.fareInfos.DestinationRank}</p>
-			<p>Destination: {props.fareInfos.DestinationLocation}</p>
-			<p>Airline: {props.fareInfos.LowestFare.AirlineCodes}</p>
-			<p>Departure Date/Time: {departure}</p>
-			<p>Return Date/Time: {returnDate}</p>
-			<p>Lowest Fare: ${props.fareInfos.LowestFare.Fare}</p>
+			<p>Ranking: {props.fareInfos.rank}</p>
+			<p>Destination: {props.fareInfos.destination}</p>
+			<p>Airline: {props.fareInfos.airline}</p>
+			<p>Departure Date/Time: {props.fareInfos.departureDateTime}</p>
+			<p>Return Date/Time: {props.fareInfos.returnDateTime}</p>
+			<p>Lowest Fare: ${props.fareInfos.fare}</p>
 			</Card.Content>
 		</Card>
 	)
