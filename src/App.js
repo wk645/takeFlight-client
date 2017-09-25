@@ -59,7 +59,6 @@ class App extends Component {
     .then(res => {
       if (res.success) {
         localStorage.setItem('jwt', res.jwt)
-        // this.msg.success('You are now a member of takeFlight!')
         this.setState({ currentUser: res.user })
       } else {
         return res
@@ -89,15 +88,14 @@ class App extends Component {
 
   addFlight = (flight) => {
 
-    // console.log(flight)
     SavedFlight.saveFlight(flight.id).then(json => this.setState({ currentUser: json.user, currentUserFlights: json.flights }))
   }
 
+  deleteFlight = (flight) => {
+    SavedFlight.deleteFlight(flight.id).then(json => this.setState({ currentUser: json.user, currentUserFlights: json.flights }))
+  }
+
   render() {
-
-    // console.log("FareInfos", this.state.fareInfos)
-  // console.log(currentUserFlights)
-
 
   return (
       <div>
@@ -108,7 +106,7 @@ class App extends Component {
 
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
-        <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} currentUserFlights={this.state.currentUserFlights} />} />
+        <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} delete={this.deleteFlight} />} />
       </div>
     );
   }
