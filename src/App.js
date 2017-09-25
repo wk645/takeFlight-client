@@ -105,7 +105,7 @@ class App extends Component {
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/" render={() => <Search fetchCB={this.fetchFlights} />} />
         <Route exact path="/" render={() => <Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} />} />
-        <Route exact path="/" render={() => <Profile user={this.state.currentUser} currentUserFlights={this.state.currentUserFlights} />} />
+
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
         <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} currentUserFlights={this.state.currentUserFlights} />} />

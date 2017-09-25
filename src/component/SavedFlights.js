@@ -11,6 +11,7 @@ const SavedFlights = (props) => {
 		<p>Departure: {props.currentUserFlights.departureDateTime.split("T")[0]}</p>
 		<p>Return: {props.currentUserFlights.returnDateTime.split("T")[0]}</p>
 		<p>Fare: {props.currentUserFlights.fare}</p>
+		<br />
 		</div>
 	)
 }
