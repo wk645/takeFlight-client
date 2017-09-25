@@ -1,21 +1,25 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
 
-const Flight = (props) => {
+const Flight = ({fareInfos, addFlight}) => {
 
-	console.log("Flight props", props)
-	// only the last FareInfos gets passed down to Flight
+	console.log("FareInfo", fareInfos)
+
+	const handleClick = (event) => {
+		event.preventDefault()
+		addFlight(fareInfos)
+	}
 
 	return (
 		<Card>
 			<Card.Content>
-			<p>Ranking: {props.fareInfos.DestinationRank}</p>
-			<p>Destination: {props.fareInfos.DestinationLocation}</p>
-			<p>Airline: {props.fareInfos.LowestFare.AirlineCodes[0].toString()}</p>
-			<p>Lowest Fare: ${props.fareInfos.LowestFare.Fare}</p>
-			<p>Departure Date: {props.fareInfos.DepartureDateTime.split("T")[0]}</p>
-			<p>Return Date: {props.fareInfos.ReturnDateTime.split("T")[0]}</p>
-			<a href={props.fareInfos.Links[0].href}>Buy</a>
+			<p>Ranking: {fareInfos.rank}</p>
+			<p>Destination: {fareInfos.destination}</p>
+			<p>Airline: {fareInfos.airline}</p>
+			<p>Departure Date: {fareInfos.departureDateTime.split("T")[0]}</p>
+			<p>Return Date: {fareInfos.returnDateTime.split("T")[0]}</p>
+			<p>Lowest Fare: ${fareInfos.fare}</p>
+			<button onClick={handleClick} type="submit" value="Add">Save</button>
 			</Card.Content>
 		</Card>
 	)
@@ -24,3 +28,4 @@ const Flight = (props) => {
 
 
 export default Flight
+// <a href={fareInfos.Links[0].href}>Buy</a>

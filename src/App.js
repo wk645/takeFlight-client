@@ -9,6 +9,7 @@ import Auth from './adapters/auth'
 import NavBar from './component/NavBar'
 import Login from './component/Login'
 import Profile from './component/Profile'
+import SavedFlight from './adapters/savedFlight'
 
 class App extends Component {
 
@@ -19,7 +20,8 @@ class App extends Component {
       origins: "",
       fareInfos: [],
       links: [],
-      currentUser: {}
+      currentUser: {},
+      currentUserFlights: []
     }
   }
 
@@ -72,7 +74,6 @@ class App extends Component {
         return res
       } else {
           localStorage.setItem('jwt', res.jwt)
-          // this.msg.success(`Welcome back ${res.user.username}!`)
           this.setState({ currentUser: res.user })
       }
     })
@@ -86,20 +87,28 @@ class App extends Component {
     )
   }
 
+  addFlight = (flight) => {
+
+    // console.log(flight)
+    SavedFlight.saveFlight(flight.id).then(json => this.setState({ currentUser: json.user, currentUserFlights: json.flights }))
+  }
+
   render() {
 
-    console.log("FareInfos", this.state.fareInfos)
+    // console.log("FareInfos", this.state.fareInfos)
+  // console.log(currentUserFlights)
+
 
   return (
       <div>
         <NavBar currentUser={this.state.currentUser} />
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/" render={() => <Search fetchCB={this.fetchFlights} />} />
-        <Route exact path="/" render={() => <Flights fareInfos={this.state.fareInfos} />} />
-
+        <Route exact path="/" render={() => <Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} />} />
+        <Route exact path="/" render={() => <Profile user={this.state.currentUser} currentUserFlights={this.state.currentUserFlights} />} />
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
-        <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} />} />
+        <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} currentUserFlights={this.state.currentUserFlights} />} />
       </div>
     );
   }
