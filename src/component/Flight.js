@@ -8,6 +8,7 @@ const Flight = ({fareInfos, addFlight}) => {
 	const handleClick = (event) => {
 		event.preventDefault()
 		addFlight(fareInfos)
+		alert("The flight has been added!")
 	}
 
 	return (

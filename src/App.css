@@ -5,3 +5,24 @@
 /** {
   background-color: #9ec0f7;
 }*/
+
+.ui.relaxed.grid {
+	margin-left: 280px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+/*.savedFlights {
+	width: 750;
+	height: 200;
+}*/
+
+div.ui.cards {
+	margin-left: 280px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+/*center cards */

@@ -87,12 +87,7 @@ class App extends Component {
   }
 
   addFlight = (flight) => {
-
     SavedFlight.saveFlight(flight.id).then(json => this.setState({ currentUser: json.user, currentUserFlights: json.flights }))
-  }
-
-  deleteFlight = (flight) => {
-    SavedFlight.deleteFlight(flight.id).then(json => this.setState({ currentUser: json.user, currentUserFlights: json.flights }))
   }
 
   render() {

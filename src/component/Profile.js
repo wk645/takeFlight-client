@@ -1,9 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import SavedFlights from './SavedFlights'
-
-// 	let savedFlights = props.currentUserFlights.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} />)
+import SavedFlight from '../adapters/savedFlight'
 
 export default class Profile extends React.Component {
 	constructor(props) {
@@ -26,21 +25,27 @@ export default class Profile extends React.Component {
 		.then(res => res.json()).then(json => this.setState({ user: json.user, currentUserFlights: json.flights }))
 	}
 
+	deleteFlight = (flight) => {
+    SavedFlight.deleteFlight(flight.id).then(json => this.setState({ user: json.user, currentUserFlights: json.flights }))
+ 	}
+
 	render() {
 
-		// console.log(this.state.user)
+		// console.log("In profile", this.props.delete)
 
-		// console.log("In Profile", this.state.currentUserFlights)
-
-		let savedFlights = this.state.currentUserFlights.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} />)
+		let savedFlights = this.state.currentUserFlights.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
 
 		let info = (
-			<center>
-				<Card image="https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg" header={this.props.user.username} meta="User" />
-				<br />
-				<h2><u>Your Saved FLights</u></h2>
-				{savedFlights}
-			</center>
+			<div>
+				<center>
+					<br />
+					<Card image="https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg" header={this.props.user.username} meta="User" />
+					<br />
+					<h2><u>Your Saved Flights</u></h2>
+					<br />
+				</center>
+				<Grid relaxed columns={2}>{savedFlights}</Grid>
+			</div>
 		)
 		return localStorage.getItem("jwt") ? info : <Redirect to="/login" />
 	}
