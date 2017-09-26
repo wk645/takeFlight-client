@@ -1,9 +1,9 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 const Flight = ({fareInfos, addFlight}) => {
 
-	console.log("FareInfo", fareInfos)
+	// console.log("FareInfo", fareInfos)
 
 	const handleClick = (event) => {
 		event.preventDefault()
@@ -20,7 +20,7 @@ const Flight = ({fareInfos, addFlight}) => {
 			<p>Departure Date: {fareInfos.departureDateTime.split("T")[0]}</p>
 			<p>Return Date: {fareInfos.returnDateTime.split("T")[0]}</p>
 			<p>Lowest Fare: ${fareInfos.fare}</p>
-			<button onClick={handleClick} type="submit" value="Add">Save</button>
+			<Button onClick={handleClick} icon='add' />
 			</Card.Content>
 		</Card>
 	)

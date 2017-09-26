@@ -10,6 +10,7 @@ import NavBar from './component/NavBar'
 import Login from './component/Login'
 import Profile from './component/Profile'
 import SavedFlight from './adapters/savedFlight'
+import Back from './component/Back'
 
 class App extends Component {
 
@@ -101,6 +102,7 @@ class App extends Component {
 
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
+        <Route exact path="/profile" component={Back} />
         <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} delete={this.deleteFlight} />} />
       </div>
     );
