@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
+/*@import url('https://fonts.googleapis.com/css?family=Zilla+Slab')*/
+
 .title {
   font-size: 50px;
+  font-family: 'Anton', sans-serif;
 }
+
+/*.HowTo {
+	font-family: 'Zilla Slab', cursive;
+}*/
 
 /** {
   background-color: #9ec0f7;
@@ -13,11 +21,6 @@
 	margin-top: 0;
 }
 
-/*.savedFlights {
-	width: 750;
-	height: 200;
-}*/
-
 div.ui.cards {
 	margin-left: 280px;
 	margin-right: 0;
@@ -26,3 +29,10 @@ div.ui.cards {
 }
 
 /*center cards */
+
+body {
+	background-image: url(sky.jpg);
+	background-attachment: fixed;
+	z-index: -1;
+	opacity: 0.95;
+}

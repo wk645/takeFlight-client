@@ -50,7 +50,7 @@ export default class Search extends React.Component {
 
 	  <Container text>
 	    <Header as='h2'>How to!</Header>
-	    <p>takeFlight formulates a destination with the help of a few things from our users: <b>departing location</b>, <b>date of travel</b> OR <b>length of stay</b>, the <b>theme</b>, <b>budget</b>, and you can also narrow the results to get a list of <b>1~50</b> recommendations.</p>
+	    <p className="HowTo">takeFlight formulates a destination with the help of a few things from our users: <b>departing location</b>, <b>date of travel</b> OR <b>length of stay</b>, the <b>theme</b>, <b>budget</b>, and you can also narrow the results to get a list of <b>1~50</b> recommendations.</p>
 	  </Container>
 	  </div>
 		)

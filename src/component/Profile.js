@@ -39,7 +39,7 @@ export default class Profile extends React.Component {
 			<div>
 				<center>
 					<br />
-					<Card image="https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg" header={this.props.user.username} meta="User" />
+					<Card style={{width: 250, height: 250}} image="https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg" header={this.props.user.username} meta="User" />
 					<br />
 					<h2><u>Your Saved Flights</u></h2>
 					<br />

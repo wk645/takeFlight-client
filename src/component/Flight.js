@@ -12,7 +12,7 @@ const Flight = ({fareInfos, addFlight}) => {
 	}
 
 	return (
-		<Card>
+		<Card style={{width: 900}}>
 			<Card.Content>
 			<p>Ranking: {fareInfos.rank}</p>
 			<p>Destination: {fareInfos.destination}</p>
