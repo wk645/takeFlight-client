@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Anton');
-/*@import url('https://fonts.googleapis.com/css?family=Zilla+Slab')*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
-.title {
+.title {@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
   font-size: 50px;
   font-family: 'Anton', sans-serif;
 }
@@ -10,9 +10,9 @@
 	font-family: 'Zilla Slab', cursive;
 }*/
 
-/** {
-  background-color: #9ec0f7;
-}*/
+.savedFlightCards {
+	font-family: 'Roboto Slab', serif
+}
 
 .ui.relaxed.grid {
 	margin-left: 280px;

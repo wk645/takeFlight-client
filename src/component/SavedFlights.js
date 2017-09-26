@@ -20,7 +20,7 @@ export default class SavedFlights extends React.Component {
 	render() {
 
 		return (
-			<Card style={{width: 900}}>
+			<Card className="savedFlightCards" style={{width: 900}}>
 				<Card.Content>
 				<p>Destination: {this.props.currentUserFlights.destination}</p>
 				<p>Airline: {this.props.currentUserFlights.airline}</p>
