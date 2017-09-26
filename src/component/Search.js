@@ -1,7 +1,8 @@
 import React from 'react'
 import { Input, Button, Container, Header, Dropdown } from 'semantic-ui-react'
-// import DatePicker from 'material-ui/DatePicker'
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+// import moment from 'moment'
 
 export default class Search extends React.Component {
 
@@ -52,10 +53,17 @@ export default class Search extends React.Component {
 		}
 	]
 
-	handleDate = (event, date) => {
+	handleDepartDate = (date) => {
 		this.setState({ departDate: date
 		})
 	}
+
+	handleReturnDate = (date) => {
+		this.setState({ returnDate: date
+		})
+	}
+
+
 
 	handleChange = (event) => {
 		this.setState({ 
@@ -73,11 +81,14 @@ export default class Search extends React.Component {
 
 	render() {
 
+		// console.log("locale", this.state.departDate._locale)
+		// console.log("info", this.state.departDate._d)
+
 		return (
 			<div><center>
 				<Input type="text" name="from" onChange={this.handleChange} value={this.state.from} placeholder="From" />
-				<Input type="text" name="departDate" onChange={this.handleChange} value={this.state.departDate} placeholder="YYYY-MM-DD" />
-				<Input type="text" name="returnDate" onChange={this.handleChange} value={this.state.returnDate} placeholder="YYYY-MM-DD" />
+				<DatePicker className="datePicker" selected={this.state.departDate} onChange={this.handleDepartDate} placeholderText="Departure Date" />
+				<DatePicker placeholderText="Return Date" className="datePicker" selected={this.state.returnDate} onChange={this.handleReturnDate} />
 				<Dropdown placeholder="Theme" selection options={this.options} onChange={this.handleSelect} />
 				<Input type="text" name="budget" onChange={this.handleChange} value={this.state.budget} placeholder="Budget" />
 				<Input type="text" name="top" onChange={this.handleChange} value={this.state.top} placeholder="Limit Results Top (1~50)" />
@@ -98,6 +109,5 @@ export default class Search extends React.Component {
 	}
 }
 
-				// <MuiThemeProvider>
-				// <DatePicker hintText="Departure Date" value={this.state.departDate} onChange={this.handleDate} />
-				// </MuiThemeProvider>
+// <Input type="text" name="departDate" onChange={this.handleChange} value={this.state.departDate} placeholder="YYYY-MM-DD" />
+// <Input type="text" name="returnDate" onChange={this.handleChange} value={this.state.returnDate} placeholder="YYYY-MM-DD" />
