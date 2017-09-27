@@ -118,10 +118,6 @@ const airportData = [
             "Type": "Airport"
         },
         {
-            "Destination": "BOS",
-            "Type": "Airport"
-        },
-        {
             "Destination": "BPS",
             "Type": "Airport"
         },
@@ -1591,10 +1587,6 @@ const airportData = [
             "Type": "Airport"
         },
         {
-            "Destination": "EWR",
-            "Type": "Airport"
-        },
-        {
             "Destination": "EZE",
             "Type": "Airport"
         },
@@ -1797,10 +1789,6 @@ const airportData = [
             "Type": "Airport"
         },
         {
-            "Destination": "JFK",
-            "Type": "Airport"
-        },
-        {
             "Destination": "JKH",
             "Type": "Airport"
         },
@@ -1883,10 +1871,6 @@ const airportData = [
             "Type": "Airport"
         },
         {
-            "Destination": "LAS",
-            "Type": "Airport"
-        },
-        {
             "Destination": "LBA",
             "Type": "Airport"
         },
@@ -1904,10 +1888,6 @@ const airportData = [
         },
         {
             "Destination": "LED",
-            "Type": "Airport"
-        },
-        {
-            "Destination": "LGA",
             "Type": "Airport"
         },
         {
@@ -2797,10 +2777,6 @@ const airportData = [
         },
         {
             "Destination": "BOM",
-            "Type": "Airport"
-        },
-        {
-            "Destination": "BOS",
             "Type": "Airport"
         },
         {
@@ -4033,10 +4009,6 @@ const airportData = [
             "Type": "Airport"
         },
         {
-            "Destination": "BOS",
-            "Type": "Airport"
-        },
-        {
             "Destination": "BQS",
             "Type": "Airport"
         },
@@ -4146,4 +4118,4 @@ const airportData = [
 
 ]
 
-export {airportData}
+export default airportData

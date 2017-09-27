@@ -32,6 +32,7 @@ export default class Profile extends React.Component {
 	render() {
 
 		let savedFlights = this.state.currentUserFlights.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
+		// move to backend
 
 		let info = (
 			<div>

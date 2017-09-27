@@ -31,6 +31,10 @@ h2.ui.header {
     margin-right: 57px;
 }
 
+div.airportSearch {
+    width: 177px;
+}
+
 .ui.text.container {
     font-family: 'Roboto Slab', serif
 

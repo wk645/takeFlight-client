@@ -11,6 +11,7 @@ import Login from './component/Login'
 import Profile from './component/Profile'
 import SavedFlight from './adapters/savedFlight'
 import Back from './component/Back'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class App extends Component {
 
@@ -97,7 +98,7 @@ class App extends Component {
       <div>
         <NavBar currentUser={this.state.currentUser} />
         <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/" render={() => <Search fetchCB={this.fetchFlights} />} />
+        <Route exact path="/" render={() => <MuiThemeProvider><Search fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
         <Route exact path="/" render={() => <Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} />} />
 
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />

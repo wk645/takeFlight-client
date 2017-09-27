@@ -2,7 +2,9 @@ import React from 'react'
 import { Input, Button, Container, Header, Dropdown, Grid } from 'semantic-ui-react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-// import {airportData} from '../data'
+import airportData from '../data'
+
+import AutoComplete from 'material-ui/AutoComplete'
 
 export default class Search extends React.Component {
 
@@ -20,6 +22,15 @@ export default class Search extends React.Component {
 			top: ""
 		}
 	}
+
+	handleUpdateInput = (from) => {
+		this.setState({ from: from })
+	}
+
+	data = airportData[0].Destinations.map(des => des.Destination)
+	// && (Array.from(new Set(this.data))))
+	// var unique = Array.from(new Set(data))
+		
 
 	options = [
 		{
@@ -70,6 +81,13 @@ export default class Search extends React.Component {
 
 	handleSubmit = (event) => {
 		this.props.fetchCB(this.state)
+		this.setState({
+			from: "",
+			budget: "",
+			top: "",
+			departDate: "",
+			returnDate: ""
+		})
 	}
 
 	handleSelect = (event) => {
@@ -83,7 +101,7 @@ export default class Search extends React.Component {
 			<Grid columns='equal'>
 				<Grid.Row>
 					<Grid.Column>
-						<Input type="text" name="from" onChange={this.handleChange} value={this.state.from} placeholder="From" />
+						<AutoComplete className="airportSearch" name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.data} filter={(from, key) => (key.indexOf(from) !== -1)} openOnFocus={false} />
 					</Grid.Column>
 					<Grid.Column>
 						<DatePicker className="datePicker" selected={this.state.departDate} onChange={this.handleDepartDate} placeholderText="Departure Date" />
@@ -118,3 +136,5 @@ export default class Search extends React.Component {
 		)
 	}
 }
+
+// <Input type="text" name="from" onChange={this.handleChange} value={this.state.from} placeholder="From" />

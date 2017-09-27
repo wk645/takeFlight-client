@@ -18,6 +18,8 @@ export default class SavedFlights extends React.Component {
 	}
 
 	render() {
+	
+		// console.log(this.state.currentUserFlights)
 
 		return (
 			<Card className="savedFlightCards" style={{width: 900}}>
