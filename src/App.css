@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
-.title {@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-  font-size: 50px;
-  font-family: 'Anton', sans-serif;
+.title {;
+  font-size: 65px;
+  font-family: 'Sedgwick Ave Display', cursive;
 }
 
-/*.HowTo {
-	font-family: 'Zilla Slab', cursive;
-}*/
 
 .savedFlightCards {
 	font-family: 'Roboto Slab', serif
+}
+
+.ui.basic.black.button {
+	margin-left: 18px;
+    font-family: 'Roboto Slab', serif
 }
 
 .ui.relaxed.grid {
@@ -21,6 +23,44 @@
 	margin-top: 0;
 }
 
+h2.ui.header {
+    font-family: 'Roboto Slab', serif
+}
+
+.ui.grid>.row {
+    margin-right: 57px;
+}
+
+.ui.text.container {
+    font-family: 'Roboto Slab', serif
+
+}
+
+.ui.button, .ui.buttons .button, .ui.buttons .or {
+    font-family: 'Roboto Slab', serif
+}
+
+.ui.card>.content>.header:not(.ui) {
+    font-family: 'Roboto Slab', serif;
+}
+
+.profile.saved.flights {
+    font-family: 'Roboto Slab', serif;
+}
+
+.ui.card .meta, .ui.cards>.card .meta {
+    font-family: 'Roboto Slab', serif;
+}
+
+.item.nav-item {
+    font-family: 'Roboto Slab', serif;
+}
+
+.item.nav-item-logo {
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 15px;
+}
+
 div.ui.cards {
 	margin-left: 280px;
 	margin-right: 0;
@@ -28,7 +68,15 @@ div.ui.cards {
 	margin-top: 0;
 }
 
+.ui.equal.width.grid {
+	margin-left: 50px;
+}
+
 /*center cards */
+/*
+.ui.input input {
+    color: rgb(112,117,123);
+}*/
 
 .datePicker {
 	margin: 0;

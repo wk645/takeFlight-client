@@ -8,8 +8,23 @@ const Flight = ({fareInfos, addFlight}) => {
 	const handleClick = (event) => {
 		event.preventDefault()
 		addFlight(fareInfos)
-		alert("The flight has been added!")
+		// displayModal()
+		alert("This flight has now been saved!")
 	}
+
+	// const displayModal = (flight) => {
+	// 	return (
+	// 		<Modal onOpen={handleClick}>
+	// 			<Modal.Header>Flight Info</Modal.Header>
+	// 				<Modal.Content>
+	// 					<Modal.Description>
+	// 						<Header>Flight</Header>
+	// 						<p>Proceed to the search page?</p>
+	// 					</Modal.Description>
+	// 				</Modal.Content>
+	// 		</Modal>
+	// 	)
+	// }
 
 	return (
 		<Card style={{width: 900}}>
@@ -20,7 +35,7 @@ const Flight = ({fareInfos, addFlight}) => {
 			<p>Departure Date: {fareInfos.departureDateTime.split("T")[0]}</p>
 			<p>Return Date: {fareInfos.returnDateTime.split("T")[0]}</p>
 			<p>Lowest Fare: ${fareInfos.fare}</p>
-			<Button onClick={handleClick} icon='add' />
+			<Button className="button" onClick={handleClick} icon='add'/>
 			</Card.Content>
 		</Card>
 	)

@@ -31,8 +31,6 @@ export default class Profile extends React.Component {
 
 	render() {
 
-		// console.log("In profile", this.props.delete)
-
 		let savedFlights = this.state.currentUserFlights.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
 
 		let info = (
@@ -41,7 +39,7 @@ export default class Profile extends React.Component {
 					<br />
 					<Card style={{width: 250, height: 250}} image="https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg" header={this.props.user.username} meta="User" />
 					<br />
-					<h2><u>Your Saved Flights</u></h2>
+					<h2><u className="profile saved flights">Your Saved Flights</u></h2>
 					<br />
 				</center>
 				<Grid relaxed columns={2}>{savedFlights}</Grid>
