@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Container } from 'semantic-ui-react'
+import { Card, Button, Container, Divider } from 'semantic-ui-react'
 
 export default class SavedFlights extends React.Component {
 	constructor(props) {
@@ -22,6 +22,7 @@ export default class SavedFlights extends React.Component {
 		// console.log(this.state.currentUserFlights)
 
 		return (
+			<div>
 			<Card className="savedFlightCards" style={{width: 900}}>
 				<Card.Content>
 				<p>Destination: {this.props.currentUserFlights.destination}</p>
@@ -36,6 +37,8 @@ export default class SavedFlights extends React.Component {
 				</Container>
 				</Card.Content>
 			</Card>
+			<Divider className="divider" />
+			</div>
 
 		)
 	}

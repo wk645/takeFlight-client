@@ -3,8 +3,8 @@ import { Input, Button, Container, Header, Dropdown, Grid } from 'semantic-ui-re
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import airportData from '../data'
-
 import AutoComplete from 'material-ui/AutoComplete'
+// import moment from 'moment'
 
 export default class Search extends React.Component {
 
@@ -27,11 +27,13 @@ export default class Search extends React.Component {
 		this.setState({ from: from })
 	}
 
-	data = airportData[0].Destinations.map(des => des.Destination)
-	// && (Array.from(new Set(this.data))))
-	// var unique = Array.from(new Set(data))
-		
+	handleAirportDupes = () => {
 
+		let data = airportData[0].Destinations.map(des => des.Destination)
+		var unique = Array.from(new Set(data))
+		return unique
+	}
+		
 	options = [
 		{
 			text: "Beach",
@@ -82,11 +84,12 @@ export default class Search extends React.Component {
 	handleSubmit = (event) => {
 		this.props.fetchCB(this.state)
 		this.setState({
-			from: "",
+			// from: null,
 			budget: "",
 			top: "",
 			departDate: "",
-			returnDate: ""
+			returnDate: "",
+			// theme: null
 		})
 	}
 
@@ -101,13 +104,13 @@ export default class Search extends React.Component {
 			<Grid columns='equal'>
 				<Grid.Row>
 					<Grid.Column>
-						<AutoComplete className="airportSearch" name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.data} filter={(from, key) => (key.indexOf(from) !== -1)} openOnFocus={false} />
+						<AutoComplete className="airportSearch" fullWidth={true} animated={true} name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.handleAirportDupes()} filter={(from, key) => (key.indexOf(from.toUpperCase()) !== -1)} openOnFocus={false} />
 					</Grid.Column>
 					<Grid.Column>
-						<DatePicker className="datePicker" selected={this.state.departDate} onChange={this.handleDepartDate} placeholderText="Departure Date" />
+						<DatePicker className="datePicker" selected={this.state.departDate} isClearable={true} onChange={this.handleDepartDate} placeholderText="Departure Date" />
 					</Grid.Column>
 					<Grid.Column>
-						<DatePicker placeholderText="Return Date" className="datePicker" selected={this.state.returnDate} onChange={this.handleReturnDate} />
+						<DatePicker placeholderText="Return Date" className="datePicker" isClearable={true} selected={this.state.returnDate} onChange={this.handleReturnDate} />
 					</Grid.Column>
 					<Grid.Column>
 						<Input type="text" name="budget" onChange={this.handleChange} value={this.state.budget} placeholder="Budget" />
