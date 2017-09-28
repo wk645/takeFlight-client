@@ -134,6 +134,8 @@ export default class Search extends React.Component {
 	  <Container text>
 	    <Header as='h2'>How to!</Header>
 	    <p className="Description">takeFlight allows our users to plan for trips by formulating a destination from the help of a few things: the <b>departing location</b>, <b>date of travel</b>, <b>theme</b>, <b>budget</b>, and you can also narrow the results to get a list of <b>1~50</b> recommendations.</p>
+	    <br />
+	    <br />
 	  </Container>
 		</div>
 		)

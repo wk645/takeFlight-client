@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Icon } from 'semantic-ui-react'
 import SavedFlights from './SavedFlights'
 import SavedFlight from '../adapters/savedFlight'
 import Dropzone from 'react-dropzone'
@@ -13,7 +13,8 @@ export default class Profile extends React.Component {
 		this.state = {
 			user: props.user,
 			image: "https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg",
-			currentUserFlights: []
+			currentUserFlights: [],
+			filtered: false
 		}
 	}
 
@@ -52,11 +53,24 @@ export default class Profile extends React.Component {
 	  });
 	}
 
+	toggleFilter = () => {
+		this.setState({ filtered: !this.state.filtered })
+	}
+
+	sortData = (flights) => {
+		return flights.sort((a, b) => (a.fare - b.fare))
+	}
+
 	render() {
+
 
 		let flights = this.state.currentUserFlights.map(flight => flight)
 		let today = (new Date()).toISOString().split("T")[0]
 		let filter = flights.filter(flight => flight.departureDateTime.split("T")[0] >= today)
+
+		if (this.state.filtered) {
+			filter = this.sortData(filter)
+		}
 
 		let savedFlights = filter.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
 
@@ -72,9 +86,11 @@ export default class Profile extends React.Component {
 					<Dropzone className="dropzone" onDrop={this.handleDrop} multiple accept="image/*">
 					<p>Change Profile Image</p>
 					</Dropzone>
-					<h2><u className="profile saved flights">Your Saved Flights</u></h2>
-					<br />
 				</center>
+					<h2 className="profile saved flights"><u>Your Saved Flights</u></h2>
+					<Icon className="icon" name="sort ascending" size="large" onClick={this.toggleFilter} />
+					<br />
+					<br />
 				<Grid relaxed columns={2}>{savedFlights}</Grid>
 			</div>
 		)

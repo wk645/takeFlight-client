@@ -16,11 +16,31 @@
     font-family: 'Roboto Slab', serif
 }
 
+.button {
+    margin-left: 390px;
+}
+
+i.large.icon, i.large.icons {
+    margin-bottom: -9px;
+}
+
+i.icon.sort.ascending:before {
+    margin-left: 295px;
+}
+
 .ui.relaxed.grid {
 	margin-left: 280px;
 	margin-right: 0;
 	margin-bottom: 0;
 	margin-top: 0;
+}
+
+.sort {
+    font-family: 'Roboto Slab', serif;
+}
+
+.searchResults {
+    font-family: 'Roboto Slab', serif;
 }
 
 h2.ui.header {
@@ -60,7 +80,6 @@ div.airportSearch {
     margin: auto;
 }
 
-.profile
 
 .ui.divider:not(.vertical):not(.horizontal) {
     border-width: 1px;
@@ -83,6 +102,9 @@ div.airportSearch {
 
 .profile.saved.flights {
     font-family: 'Roboto Slab', serif;
+    margin-left: 293px;
+    border-left: 6px solid white;
+    border-radius: 3px;
 }
 
 .ui.card .meta, .ui.cards>.card .meta {

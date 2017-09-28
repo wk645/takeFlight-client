@@ -99,7 +99,7 @@ class App extends Component {
         <NavBar currentUser={this.state.currentUser} />
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/" render={() => <MuiThemeProvider><Search fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
-        <Route exact path="/" render={() => <Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} />} />
+        <Route exact path="/" render={() => <MuiThemeProvider><Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider>} />
 
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
