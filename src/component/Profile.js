@@ -14,7 +14,8 @@ export default class Profile extends React.Component {
 			user: props.user,
 			image: "https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg",
 			currentUserFlights: [],
-			filtered: false
+			filteredPrice: false,
+			filteredDate: false
 		}
 	}
 
@@ -53,12 +54,21 @@ export default class Profile extends React.Component {
 	  });
 	}
 
-	toggleFilter = () => {
-		this.setState({ filtered: !this.state.filtered })
+	togglePrice = () => {
+		this.setState({ filteredPrice: !this.state.filteredPrice })
 	}
 
-	sortData = (flights) => {
+	toggleDate = () => {
+		this.setState({ filteredDate: !this.state.filteredDate })
+		// console.log("toggled date")
+	}
+
+	sortPrice = (flights) => {
 		return flights.sort((a, b) => (a.fare - b.fare))
+	}
+
+	sortDate = (flights) => {
+		return flights.sort((a, b) => (a.departureDateTime > b.departureDateTime))
 	}
 
 	render() {
@@ -68,8 +78,12 @@ export default class Profile extends React.Component {
 		let today = (new Date()).toISOString().split("T")[0]
 		let filter = flights.filter(flight => flight.departureDateTime.split("T")[0] >= today)
 
-		if (this.state.filtered) {
-			filter = this.sortData(filter)
+		if (this.state.filteredPrice) {
+			filter = this.sortPrice(filter)
+		}
+
+		if (this.state.filteredDate) {
+			filter = this.sortDate(filter)
 		}
 
 		let savedFlights = filter.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
@@ -88,7 +102,9 @@ export default class Profile extends React.Component {
 					</Dropzone>
 				</center>
 					<h2 className="profile saved flights"><u>Your Saved Flights</u></h2>
-					<Icon className="icon" name="sort ascending" size="large" onClick={this.toggleFilter} />
+					<Icon className="icon" name="sort ascending" size="large" onClick={this.togglePrice} />
+					<Icon className="icon" name="sort ascending" size="large" onClick={this.toggleDate} />
+
 					<br />
 					<br />
 				<Grid relaxed columns={2}>{savedFlights}</Grid>
