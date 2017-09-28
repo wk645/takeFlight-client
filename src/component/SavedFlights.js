@@ -18,8 +18,10 @@ export default class SavedFlights extends React.Component {
 	}
 
 	render() {
-	
-		// console.log(this.state.currentUserFlights)
+
+		console.log(this.props)
+
+		console.log("in savedFlights", this.state.currentUserFlights)
 
 		return (
 			<div>

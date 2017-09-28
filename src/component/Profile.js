@@ -12,7 +12,7 @@ export default class Profile extends React.Component {
 
 		this.state = {
 			user: props.user,
-			image: [],
+			image: "https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg",
 			currentUserFlights: []
 		}
 	}
@@ -54,17 +54,20 @@ export default class Profile extends React.Component {
 
 	render() {
 
-		// console.log("Image state", this.state.image)
+		let flights = this.state.currentUserFlights.map(flight => flight)
+		let today = (new Date()).toISOString().split("T")[0]
+		let filter = flights.filter(flight => flight.departureDateTime.split("T")[0] >= today)
 
-		let savedFlights = this.state.currentUserFlights.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
+		let savedFlights = filter.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
 
 		let info = (
 			<div>
 				<center>
 					<br />
-					<Card style={{width: 250, height: 250}} image={this.state.image} header={this.props.user.username} meta="User" />
-					<br />
-					<br />
+					<Card className="profilePicture" style={{width: 250, height: 250}} image={this.state.image} />
+					<p className="username">Name: {this.props.user.fullname}</p>
+					<p className="username">Username: {this.props.user.username}</p>
+					<p className="username">E-mail: {this.props.user.email}</p>
 					<br />
 					<Dropzone className="dropzone" onDrop={this.handleDrop} multiple accept="image/*">
 					<p>Change Profile Image</p>
@@ -78,14 +81,3 @@ export default class Profile extends React.Component {
 		return localStorage.getItem("jwt") ? info : <Redirect to="/login" />
 	}
 }
-
-	// # handlePastFlights = () => {
-	// # 	let flightDate = this.state.currentUserFlights.map(flight => flight.departureDateTime.split("T")[0])
-
-	// # 	let today = (new Date()).toISOString().split('T')[0]
-
-	// # 	if (flightDate !== today) {
-	// # 		// ignore flights
-	// # 		where to call this function?
-	// # 	}
-	// # }
