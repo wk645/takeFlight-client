@@ -37,6 +37,20 @@ i.icon.sort.ascending:before {
 
 .sort {
     font-family: 'Roboto Slab', serif;
+    margin-left: 293px;
+}
+
+.price {
+    font-family: 'Roboto Slab', serif;
+    margin-left: 293px;
+}
+
+.date {
+    font-family: 'Roboto Slab', serif;
+    margin-left: 293px;
+    float: right;
+    margin-right: 1004px;
+    margin-top: -33px;
 }
 
 .searchResults {

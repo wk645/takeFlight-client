@@ -12,6 +12,7 @@ import Profile from './component/Profile'
 import SavedFlight from './adapters/savedFlight'
 import Back from './component/Back'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import ScrollUpButton from 'react-scroll-up-button'
 
 class App extends Component {
 
@@ -97,6 +98,7 @@ class App extends Component {
   return (
       <div>
         <NavBar currentUser={this.state.currentUser} />
+        <ScrollUpButton />
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/" render={() => <MuiThemeProvider><Search fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
         <Route exact path="/" render={() => <MuiThemeProvider><Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider>} />

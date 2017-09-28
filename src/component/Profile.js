@@ -1,10 +1,11 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Card, Grid, Icon } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import SavedFlights from './SavedFlights'
 import SavedFlight from '../adapters/savedFlight'
 import Dropzone from 'react-dropzone'
 import axios from 'axios'
+
 
 export default class Profile extends React.Component {
 	constructor(props) {
@@ -102,10 +103,9 @@ export default class Profile extends React.Component {
 					</Dropzone>
 				</center>
 					<h2 className="profile saved flights"><u>Your Saved Flights</u></h2>
-					<Icon className="icon" name="sort ascending" size="large" onClick={this.togglePrice} />
-					<Icon className="icon" name="sort ascending" size="large" onClick={this.toggleDate} />
-
-					<br />
+					<p className="sort">Sort by:</p>
+					<p className="price" onClick={this.togglePrice}>Price</p>
+					<p className="date" onClick={this.toggleDate}>Departure Date</p>
 					<br />
 				<Grid relaxed columns={2}>{savedFlights}</Grid>
 			</div>
@@ -113,3 +113,6 @@ export default class Profile extends React.Component {
 		return localStorage.getItem("jwt") ? info : <Redirect to="/login" />
 	}
 }
+
+// <Icon className="icon" name="sort ascending" size="large" onClick={this.togglePrice} />
+// <Icon className="icon" name="sort ascending" size="large" onClick={this.toggleDate} />
