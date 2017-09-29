@@ -22,8 +22,7 @@ class App extends Component {
     this.state = {
       fareInfos: [],
       currentUser: {},
-      currentUserFlights: [],
-      loaded: false
+      currentUserFlights: []
     }
   }
 
@@ -43,13 +42,9 @@ class App extends Component {
         "topdestinations": top
       })
     }
-    fetch(`http://localhost:3000/api/v1/flight/`, options)
+    return fetch(`http://localhost:3000/api/v1/flight/`, options)
     .then(res => res.json())
     .then(data => this.setState({ fareInfos: data }))
-  }
-
-  onSuccess = () => {
-    this.setState({ loaded: true })
   }
 
   componentDidMount() {
@@ -97,15 +92,14 @@ class App extends Component {
   }
 
   render() {
-
   return (
       <div>
         <NavBar currentUser={this.state.currentUser} />
         <ScrollUpButton />
         <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/" render={() => <MuiThemeProvider><Search fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
-        <Route exact path="/" render={() => <MuiThemeProvider><Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider>} />
-
+        <Route exact path="/" render={({history}) => <MuiThemeProvider><Search history={history} fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
+        <Route exact path="/results" component={Back} />
+        <Route exact path="/results" render={({history}) => <MuiThemeProvider><Flights history={history} fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider> } />
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
         <Route exact path="/profile" component={Back} />
@@ -116,3 +110,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <Route exact path="/" render={() => <MuiThemeProvider><Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider>} />

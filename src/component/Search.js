@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import airportData from '../data'
 import AutoComplete from 'material-ui/AutoComplete'
-// import moment from 'moment'
+
 
 export default class Search extends React.Component {
 
@@ -83,14 +83,15 @@ export default class Search extends React.Component {
 
 	handleSubmit = (event) => {
 		this.props.fetchCB(this.state)
-		this.setState({
-			// from: null,
-			budget: "",
-			top: "",
-			departDate: "",
-			returnDate: "",
-			// theme: null
-		})
+		.then(res => this.props.history.push("/results"))
+		// this.setState({
+		// 	// from: null,
+		// 	budget: "",
+		// 	top: "",
+		// 	departDate: "",
+		// 	returnDate: "",
+		// 	// theme: null
+		// })
 	}
 
 	handleSelect = (event) => {
@@ -98,7 +99,6 @@ export default class Search extends React.Component {
 	}
 
 	render() {
-
 		return (
 		<div>
 			<Grid columns='equal'>
