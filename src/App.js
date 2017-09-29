@@ -20,11 +20,10 @@ class App extends Component {
     super()
 
     this.state = {
-      origins: "",
       fareInfos: [],
-      links: [],
       currentUser: {},
-      currentUserFlights: []
+      currentUserFlights: [],
+      loaded: false
     }
   }
 
@@ -47,6 +46,10 @@ class App extends Component {
     fetch(`http://localhost:3000/api/v1/flight/`, options)
     .then(res => res.json())
     .then(data => this.setState({ fareInfos: data }))
+  }
+
+  onSuccess = () => {
+    this.setState({ loaded: true })
   }
 
   componentDidMount() {
@@ -113,6 +116,3 @@ class App extends Component {
 }
 
 export default App;
-
-        // <Flights fareInfos={this.state.fareInfos} links={this.state.links} />
-

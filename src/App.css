@@ -26,6 +26,7 @@ i.large.icon, i.large.icons {
 
 i.icon.sort.ascending:before {
     margin-left: 295px;
+
 }
 
 .ui.relaxed.grid {
@@ -38,19 +39,25 @@ i.icon.sort.ascending:before {
 .sort {
     font-family: 'Roboto Slab', serif;
     margin-left: 293px;
+    cursor: pointer;
 }
 
 .price {
     font-family: 'Roboto Slab', serif;
     margin-left: 293px;
+    cursor: pointer;
 }
 
 .date {
     font-family: 'Roboto Slab', serif;
-    margin-left: 293px;
     float: right;
-    margin-right: 1004px;
+    margin-right: 998px;
     margin-top: -33px;
+    cursor: pointer;
+}
+
+.profileImage {
+    cursor: pointer;
 }
 
 .searchResults {
@@ -68,7 +75,10 @@ h2.ui.header {
 div.airportSearch {
     width: 177px;
     font-family: 'Roboto Slab', serif;
-    font-size: 18px;
+}
+
+.ui.input {
+    font-family: 'Roboto Slab', serif;
 }
 
 .username {
@@ -178,4 +188,14 @@ body {
 	background-attachment: fixed;
 	z-index: -1;
 	opacity: 0.95;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }

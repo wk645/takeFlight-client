@@ -3,37 +3,40 @@ import { Card } from 'semantic-ui-react'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
-const Flight = ({fareInfos, addFlight}) => {
+export default class Flight extends React.Component {
+	// constructor(props) {
+	// 	super(props)
 
-	// console.log("FareInfo", fareInfos)
+	// 	// this.state = {
+	// 	// 	fareInfos: props.fareInfos,addFlight: props.addFlight
+			
+	// 	// }
+	// }
 
-	const handleClick = (event) => {
+	handleClick = (event) => {
 		event.preventDefault()
-		addFlight(fareInfos)
-		// displayModal()
+		this.props.addFlight(this.props.fareInfos)
 		alert("This flight has now been saved!")
 	}
 
-	const style = {
+	style = {
 		marginRight: 0
 	}
 
-	return (
-		<Card className="searchResults" style={{width: 900}}>
-			<Card.Content>
-			<p>Ranking: {fareInfos.rank}</p>
-			<p>Destination: {fareInfos.destination}</p>
-			<p>Airline: {fareInfos.airline}</p>
-			<p>Departure Date: {fareInfos.departureDateTime.split("T")[0]}</p>
-			<p>Return Date: {fareInfos.returnDateTime.split("T")[0]}</p>
-			<p>Lowest Fare: ${fareInfos.fare}</p>
-			<FloatingActionButton className="button" mini={true} style={style} onClick={handleClick}><ContentAdd /></FloatingActionButton>
-			</Card.Content>
-		</Card>
-	)
+	render() {
+
+		return (
+			<Card className="searchResults" style={{width: 900}}>
+				<Card.Content>
+				<p>Ranking: {this.props.fareInfos.rank}</p>
+				<p>Destination: {this.props.fareInfos.destination}</p>
+				<p>Airline: {this.props.fareInfos.airline}</p>
+				<p>Departure Date: {this.props.fareInfos.departureDateTime.split("T")[0]}</p>
+				<p>Return Date: {this.props.fareInfos.returnDateTime.split("T")[0]}</p>
+				<p>Lowest Fare: ${this.props.fareInfos.fare}</p>
+				<FloatingActionButton className="button" mini={true} style={this.style} onClick={this.handleClick}><ContentAdd /></FloatingActionButton>
+				</Card.Content>
+			</Card>
+		)
+	}
 }
-
-
-
-export default Flight
-// <a href={fareInfos.Links[0].href}>Buy</a>

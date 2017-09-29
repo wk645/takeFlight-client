@@ -99,7 +99,7 @@ export default class Profile extends React.Component {
 					<p className="username">E-mail: {this.props.user.email}</p>
 					<br />
 					<Dropzone className="dropzone" onDrop={this.handleDrop} multiple accept="image/*">
-					<p>Change Profile Image</p>
+					<p className="profileImage">Change Profile Image</p>
 					</Dropzone>
 				</center>
 					<h2 className="profile saved flights"><u>Your Saved Flights</u></h2>
@@ -114,5 +114,6 @@ export default class Profile extends React.Component {
 	}
 }
 
-// <Icon className="icon" name="sort ascending" size="large" onClick={this.togglePrice} />
-// <Icon className="icon" name="sort ascending" size="large" onClick={this.toggleDate} />
+// .sort .date {
+//   cursor: pointer;
+// }
