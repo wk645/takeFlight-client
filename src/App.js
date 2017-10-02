@@ -13,6 +13,7 @@ import SavedFlight from './adapters/savedFlight'
 import Back from './component/Back'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import ScrollUpButton from 'react-scroll-up-button'
+import AlertContainer from 'react-alert'
 
 class App extends Component {
 
@@ -24,6 +25,14 @@ class App extends Component {
       currentUser: {},
       currentUserFlights: []
     }
+  }
+
+  alertOptions = {
+    offset: 14,
+    position: 'top left',
+    theme: 'dark',
+    time: 3000,
+    transition: 'fade'
   }
 
 
@@ -60,6 +69,7 @@ class App extends Component {
     .then(res => {
       if (res.success) {
         localStorage.setItem('jwt', res.jwt)
+        this.msg.show('Welcome to takeFlight!')
         this.setState({ currentUser: res.user })
       } else {
         return res
@@ -74,6 +84,7 @@ class App extends Component {
         return res
       } else {
           localStorage.setItem('jwt', res.jwt)
+          this.msg.show(`Welcome back ${res.user.username}!`)
           this.setState({ currentUser: res.user })
       }
     })
@@ -88,13 +99,17 @@ class App extends Component {
   }
 
   addFlight = (flight) => {
-    SavedFlight.saveFlight(flight.id).then(json => this.setState({ currentUser: json.user, currentUserFlights: json.flights }))
+    SavedFlight.saveFlight(flight.id).then(json => {
+      this.msg.show("This flight has been saved to your list!")
+      this.setState({ currentUser: json.user, currentUserFlights: json.flights })
+    })
   }
 
   render() {
   return (
       <div>
         <NavBar currentUser={this.state.currentUser} />
+        <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
         <ScrollUpButton />
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/" render={({history}) => <MuiThemeProvider><Search history={history} fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
@@ -110,5 +125,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <Route exact path="/" render={() => <MuiThemeProvider><Flights fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider>} />

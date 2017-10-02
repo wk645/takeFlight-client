@@ -84,14 +84,6 @@ export default class Search extends React.Component {
 	handleSubmit = (event) => {
 		this.props.fetchCB(this.state)
 		.then(res => this.props.history.push("/results"))
-		// this.setState({
-		// 	// from: null,
-		// 	budget: "",
-		// 	top: "",
-		// 	departDate: "",
-		// 	returnDate: "",
-		// 	// theme: null
-		// })
 	}
 
 	handleSelect = (event) => {
@@ -141,5 +133,3 @@ export default class Search extends React.Component {
 		)
 	}
 }
-
-// <Input type="text" name="from" onChange={this.handleChange} value={this.state.from} placeholder="From" />

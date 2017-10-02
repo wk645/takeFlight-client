@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Button, Grid } from 'semantic-ui-react'
+import AlertContainer from 'react-alert'
 
 export default class SignUp extends React.Component {
 
@@ -11,7 +12,13 @@ export default class SignUp extends React.Component {
 		password: "",
 	}
 
-
+	alertOptions = {
+		offset: 14,
+		position: 'top left',
+		theme: 'dark',
+		time: 3000,
+		transition: 'fade'
+	}
 
 	handleSubmit = (event) => {
 		event.preventDefault()
@@ -31,6 +38,7 @@ export default class SignUp extends React.Component {
 
 		return (
 			<div>
+			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
 				<center><h2>Sign Up Page</h2></center>
 				<br />
 				<Grid centered columns={4}>

@@ -4,19 +4,10 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
 export default class Flight extends React.Component {
-	// constructor(props) {
-	// 	super(props)
-
-	// 	// this.state = {
-	// 	// 	fareInfos: props.fareInfos,addFlight: props.addFlight
-			
-	// 	// }
-	// }
 
 	handleClick = (event) => {
 		event.preventDefault()
 		this.props.addFlight(this.props.fareInfos)
-		alert("This flight has now been saved!")
 	}
 
 	style = {

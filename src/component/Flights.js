@@ -14,17 +14,3 @@ const Flights = (props) => {
 }
 
 export default Flights
-
-// export default class Flights extends React.Component {
-
-// 	constructor(props) {
-// 		super(props) {
-
-// 			this.state = {
-
-// 			}
-// 		}
-// 	}
-
-	
-// }

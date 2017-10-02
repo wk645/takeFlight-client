@@ -5,6 +5,7 @@ import SavedFlights from './SavedFlights'
 import SavedFlight from '../adapters/savedFlight'
 import Dropzone from 'react-dropzone'
 import axios from 'axios'
+import AlertContainer from 'react-alert'
 
 
 export default class Profile extends React.Component {
@@ -20,6 +21,14 @@ export default class Profile extends React.Component {
 		}
 	}
 
+	alertOptions = {
+	    offset: 14,
+	    position: 'top left',
+	    theme: 'dark',
+	    time: 3000,
+	    transition: 'fade'
+  	}
+
 	componentDidMount() {
 		const jwtToken = localStorage.getItem("jwt")
 		return fetch("http://localhost:3000/api/v1/my_flights", {
@@ -32,7 +41,10 @@ export default class Profile extends React.Component {
 	}
 
 	deleteFlight = (flight) => {
-    SavedFlight.deleteFlight(flight.id).then(json => this.setState({ user: json.user, currentUserFlights: json.flights }))
+    	SavedFlight.deleteFlight(flight.id).then(json => {
+    		this.msg.show("This flight has been removed from your list!")
+    		this.setState({ user: json.user, currentUserFlights: json.flights })
+    	})
  	}
 
 	handleDrop = (files) => {
@@ -91,6 +103,7 @@ export default class Profile extends React.Component {
 
 		let info = (
 			<div>
+			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
 				<center>
 					<br />
 					<Card className="profilePicture" style={{width: 250, height: 250}} image={this.state.image} />

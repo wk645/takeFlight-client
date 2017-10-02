@@ -14,7 +14,6 @@ export default class SavedFlights extends React.Component {
 	handleClick = (event) => {
 		event.preventDefault()
 		this.props.delete(this.props.currentUserFlights)
-		alert("This flight has been removed from your list!")
 	}
 
 	render() {
