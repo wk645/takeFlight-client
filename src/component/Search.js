@@ -4,6 +4,8 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import airportData from '../data'
 import AutoComplete from 'material-ui/AutoComplete'
+import AlertContainer from 'react-alert'
+import moment from 'moment'
 
 
 export default class Search extends React.Component {
@@ -22,6 +24,14 @@ export default class Search extends React.Component {
 			top: ""
 		}
 	}
+
+	alertOptions = {
+	    offset: 14,
+	    position: 'top left',
+	    theme: 'dark',
+	    time: 3000,
+	    transition: 'fade'
+  }
 
 	handleUpdateInput = (from) => {
 		this.setState({ from: from })
@@ -93,16 +103,17 @@ export default class Search extends React.Component {
 	render() {
 		return (
 		<div>
+		<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
 			<Grid columns='equal'>
 				<Grid.Row>
 					<Grid.Column>
 						<AutoComplete className="airportSearch" fullWidth={true} animated={true} name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.handleAirportDupes()} filter={(from, key) => (key.indexOf(from.toUpperCase()) !== -1)} openOnFocus={false} />
 					</Grid.Column>
 					<Grid.Column>
-						<DatePicker className="datePicker" selected={this.state.departDate} isClearable={true} onChange={this.handleDepartDate} placeholderText="Departure Date" />
+						<DatePicker className="datePicker" selected={this.state.departDate} isClearable={true} minDate={moment()} onChange={this.handleDepartDate} placeholderText="Departure Date" />
 					</Grid.Column>
 					<Grid.Column>
-						<DatePicker placeholderText="Return Date" className="datePicker" isClearable={true} selected={this.state.returnDate} onChange={this.handleReturnDate} />
+						<DatePicker placeholderText="Return Date" className="datePicker" isClearable={true} selected={this.state.returnDate} minDate={moment()} onChange={this.handleReturnDate} />
 					</Grid.Column>
 					<Grid.Column>
 						<Input type="text" name="budget" onChange={this.handleChange} value={this.state.budget} placeholder="Budget" />

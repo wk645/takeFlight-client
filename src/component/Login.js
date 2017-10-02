@@ -22,7 +22,7 @@ export default class SignUp extends React.Component {
 		event.preventDefault()
 		this.props.loginUser(this.state).then(res => {
 			if (res) {
-				this.msg.show("Your username or password does not match with our records!", {time: 4000})
+				this.msg.error("Your username or password does not match with our records!")
 			}
 		})
 	}

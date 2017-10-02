@@ -51,9 +51,15 @@ class App extends Component {
         "topdestinations": top
       })
     }
+    
     return fetch(`http://localhost:3000/api/v1/flight/`, options)
     .then(res => res.json())
-    .then(data => this.setState({ fareInfos: data }))
+    .then(data => {
+      if (data) {
+        this.setState({ fareInfos: data })
+    } else {
+      this.msg.error("An unknown error occurred with your search. Please try again!")
+    }})
   }
 
   componentDidMount() {
@@ -84,7 +90,7 @@ class App extends Component {
         return res
       } else {
           localStorage.setItem('jwt', res.jwt)
-          this.msg.show(`Welcome back ${res.user.username}!`)
+          this.msg.success(`Welcome back ${res.user.username}!`)
           this.setState({ currentUser: res.user })
       }
     })
@@ -100,7 +106,7 @@ class App extends Component {
 
   addFlight = (flight) => {
     SavedFlight.saveFlight(flight.id).then(json => {
-      this.msg.show("This flight has been saved to your list!")
+      this.msg.success("This flight has been saved to your list!")
       this.setState({ currentUser: json.user, currentUserFlights: json.flights })
     })
   }

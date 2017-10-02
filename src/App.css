@@ -36,6 +36,12 @@ i.icon.sort.ascending:before {
 	margin-top: 0;
 }
 
+div.rbc-calendar {
+    width: 900px;
+    height: 700px;
+    margin: auto;
+}
+
 .sort {
     font-family: 'Roboto Slab', serif;
     margin-left: 293px;
