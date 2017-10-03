@@ -18,7 +18,6 @@ export default class Search extends React.Component {
 			from: "",
 			departDate: "",
 			returnDate: "",
-			length: "",
 			theme: "",
 			budget: "",
 			top: ""
@@ -92,15 +91,26 @@ export default class Search extends React.Component {
 	}
 
 	handleSubmit = (event) => {
-		this.props.fetchCB(this.state)
-		.then(res => this.props.history.push("/results"))
+
+		console.log(this.state)
+
+		if (!!this.state.from && !!this.state.departDate && !!this.state.returnDate && !!this.state.theme && !!this.state.budget && !!this.state.top) 
+
+		{
+			this.props.fetchCB(this.state)
+			.then(res => this.props.history.push("/results"))
+		} else {
+			this.msg.error("An unknown error occurred during your search. Please try again!")
+		}
+
 	}
 
-	handleSelect = (event) => {
-		this.setState({ theme: event.target.value })
+	handleSelect = (event, data) => {
+		this.setState({ theme: data.value })
 	}
 
 	render() {
+
 		return (
 		<div>
 		<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />

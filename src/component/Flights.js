@@ -28,6 +28,7 @@ export default class Flights extends React.Component {
 	let flight = sortedFlight.map((info, index) => <Flight key={index} fareInfos={info} addFlight={this.props.addFlight}/>)
 
 		return (
+
 			<div>
 			<br />
 				<center><h3 className="priceSearch" onClick={this.togglePrice}>Price</h3></center>
@@ -35,6 +36,7 @@ export default class Flights extends React.Component {
 					{this.props.fareInfos.length === 0 ? null : flight }
 				</Card.Group>
 			</div>
+			
 		)
 	}
 

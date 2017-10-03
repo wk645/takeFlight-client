@@ -65,6 +65,10 @@ export default class Profile extends React.Component {
 	  });
 	}
 
+	handleSubmit = (event) => {
+		event.preventDefault()
+	}
+
 	togglePrice = () => {
 		this.setState({ filteredPrice: !this.state.filteredPrice })
 	}
@@ -120,3 +124,15 @@ export default class Profile extends React.Component {
 		return localStorage.getItem("jwt") ? info : <Redirect to="/login" />
 	}
 }
+
+// <form className="form" onSubmit={this.handleDrop}>
+// 					<input type="file" name="avatar" onChange={ this.uploadFile } ref="imageInput" accept="image/png, image/jpeg"  multiple="false" />
+// 					</form>
+
+// <form className="picture" onSubmit={this.handleSubmit}>
+// <Dropzone className="dropzone" onDrop={this.handleDrop} multiple accept="image/*">
+// <p className="profileImage">Change Profile Image</p>
+// </Dropzone>
+// {this.state.image.length > 0 ? <img src={this.state.image} width="500px" height="500px" /> : null }
+// <input type="submit" value="submit" />
+// </form>

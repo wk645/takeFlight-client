@@ -120,6 +120,7 @@ div.airportSearch {
     transition: box-shadow .1s ease,border-color .1s ease;
     box-shadow: none;
     font-color: gray;
+    line-height: 13px !important;
 }
 
 .ui.input {
@@ -220,12 +221,12 @@ div.ui.cards {
     padding: .67857143em 1em;
     background: #fff;
     border: 1px solid rgba(34,36,38,.15);
-    color: rgba(0,0,0,.87);
+    color: rgba(0,0,0,.87) !important;
     border-radius: .28571429rem;
     -webkit-transition: box-shadow .1s ease,border-color .1s ease;
     transition: box-shadow .1s ease,border-color .1s ease;
     box-shadow: none;
-    font-color: gray;
+    font-color: gray !important;
 }
 
 body {
@@ -245,4 +246,3 @@ body {
   text-align: center;
 }
 
-/* css for ticket*/

@@ -1,5 +1,5 @@
 import React from 'react'
-// import AlertContainer from 'react-alert'
+import AlertContainer from 'react-alert'
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -24,9 +24,9 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       
-      this.msg.error("An Unknown error occurred with your search. Please try again!")
+      return <h2>Error</h2>
     }
-    
+    return this.props.children;
   }
 }
 

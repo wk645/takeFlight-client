@@ -53,12 +53,7 @@ class App extends Component {
     
     return fetch(`http://localhost:3000/api/v1/flight/`, options)
     .then(res => res.json())
-    .then(data => {
-      if (data) {
-        this.setState({ fareInfos: data })
-    } else {
-      this.msg.error("An unknown error occurred with your search. Please try again!")
-    }})
+    .then(data => this.setState({ fareInfos: data }))
   }
 
   componentDidMount() {
@@ -118,7 +113,9 @@ class App extends Component {
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/" render={({history}) => <MuiThemeProvider><Search history={history} fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
         <Route exact path="/results" component={Back} />
+        
         <Route exact path="/results" render={({history}) => <MuiThemeProvider><Flights history={history} fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider> } />
+        
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
         <Route exact path="/profile" component={Back} />
