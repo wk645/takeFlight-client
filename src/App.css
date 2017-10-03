@@ -67,6 +67,12 @@ div.rbc-calendar {
     cursor: pointer;
 }
 
+.priceSearch {
+    font-family: 'Roboto Slab', serif;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
 .date {
     font-family: 'Roboto Slab', serif;
     margin-left: 50px;
@@ -91,8 +97,29 @@ h2.ui.header {
 }
 
 div.airportSearch {
-    width: 177px;
-    font-family: 'Roboto Slab', serif;
+    width: 177px !important;
+    height: 38px !important;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif !important;
+    font-color: rgba(0,0,0,.87) !important;
+    margin: 0;
+    font-size: 14px !important;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    text-align: left;
+    line-height: 1.21428571em;
+    padding: .67857143em 1em;
+    background: white !important;
+    border: 1px solid rgba(34,36,38,.15);
+    color: rgba(0,0,0,.87) !important;
+    border-radius: .28571429rem;
+    -webkit-transition: box-shadow .1s ease,border-color .1s ease;
+    transition: box-shadow .1s ease,border-color .1s ease;
+    box-shadow: none;
+    font-color: gray;
 }
 
 .ui.input {

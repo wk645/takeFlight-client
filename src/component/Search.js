@@ -107,7 +107,7 @@ export default class Search extends React.Component {
 			<Grid columns='equal'>
 				<Grid.Row>
 					<Grid.Column>
-						<AutoComplete className="airportSearch" fullWidth={true} animated={true} name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.handleAirportDupes()} filter={(from, key) => (key.indexOf(from.toUpperCase()) !== -1)} openOnFocus={false} />
+						<AutoComplete className="airportSearch" fullWidth={true} animated={true} name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.handleAirportDupes()} filter={(from, key) => (key.indexOf(from.toUpperCase()) !== -1)} openOnFocus={false} underlineStyle={{display: 'none'}} />
 					</Grid.Column>
 					<Grid.Column>
 						<DatePicker className="datePicker" selected={this.state.departDate} isClearable={true} minDate={moment()} onChange={this.handleDepartDate} placeholderText="Departure Date" />

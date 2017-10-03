@@ -30,7 +30,7 @@ export default class Flights extends React.Component {
 		return (
 			<div>
 			<br />
-				<center><p className="price" onClick={this.togglePrice}>Price</p></center>
+				<center><h3 className="priceSearch" onClick={this.togglePrice}>Price</h3></center>
 				<Card.Group>
 					{this.props.fareInfos.length === 0 ? null : flight }
 				</Card.Group>
