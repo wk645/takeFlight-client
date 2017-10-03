@@ -1,55 +1,55 @@
 export default [
   {
-    'title': 'Flight 1',
+    'title': 'LAX',
     'allDay': true,
-    'start': new Date(2015, 3, 1),
-    'end': new Date(2015, 3, 1)
+    'start': new Date(2017, 9, 10),
+    'end': new Date(2017, 9, 14)
   },
   {
-    'title': 'Flight 2',
-    'start': new Date(2015, 3, 7),
-    'end': new Date(2015, 3, 10)
-  },
-
-  {
-    'title': 'Flight 3',
-    'start': new Date(2016, 2, 13, 0, 0, 0),
-    'end': new Date(2016, 2, 20, 0, 0, 0)
+    'title': 'LAS',
+    'start': new Date(2017, 9, 10),
+    'end': new Date(2017, 9, 14)
   },
 
   {
-    'title': 'Flight 4',
-    'start': new Date(2016, 10, 6),
-    'end': new Date(2016, 10, 13, 0, 0, 0)
+    'title': 'SFO',
+    'start': new Date(2017, 9, 10),
+    'end': new Date(2017, 9, 14)
   },
 
   {
-    'title': 'Flight 5',
-    'start': new Date(2015, 3, 9, 0, 0, 0),
-    'end': new Date(2015, 3, 9, 0, 0, 0)
+    'title': 'MCO',
+    'start': new Date(2017, 9, 4),
+    'end': new Date(2017, 9, 12)
+  },
+
+  {
+    'title': 'ATL',
+    'start': new Date(2017, 9, 4),
+    'end': new Date(2017, 9, 12)
   },
   {
-    'title': 'Flight 6',
-    'start': new Date(2015, 3, 11),
-    'end': new Date(2015, 3, 13),
+    'title': 'LAX',
+    'start': new Date(2017, 9, 12),
+    'end': new Date(2017, 9, 22),
     desc: 'Big conference for important people'
   },
   {
-    'title': 'Flight 7',
-    'start': new Date(2015, 3, 12, 10, 30, 0, 0),
-    'end': new Date(2015, 3, 12, 12, 30, 0, 0),
+    'title': 'LAS',
+    'start': new Date(2017, 9, 12),
+    'end': new Date(2017, 9, 22),
     desc: 'Pre-meeting meeting, to prepare for the meeting'
   },
   {
-    'title': 'Flight 8',
-    'start':new Date(2015, 3, 12, 12, 0, 0, 0),
-    'end': new Date(2015, 3, 12, 13, 0, 0, 0),
+    'title': 'SFO',
+    'start':new Date(2017, 9, 12),
+    'end': new Date(2017, 9, 22),
     desc: 'Power lunch'
   },
   {
-    'title': 'Flight 9',
-    'start':new Date(2015, 3, 12,14, 0, 0, 0),
-    'end': new Date(2015, 3, 12,15, 0, 0, 0)
+    'title': 'CUN',
+    'start':new Date(2017, 9, 12),
+    'end': new Date(2017, 9, 22)
   },
   {
     'title': 'Flight 10',

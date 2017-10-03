@@ -70,7 +70,6 @@ class App extends Component {
 
   signUpUser = (userParams) => {
     return Auth.signup(userParams)
-    // static signup from auth.js
     .then(res => {
       if (res.success) {
         localStorage.setItem('jwt', res.jwt)

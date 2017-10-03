@@ -19,15 +19,18 @@ export default class Flights extends React.Component {
 
 	render() {
 
-	let flight = this.props.fareInfos.map((info, index) => <Flight key={index} fareInfos={info} addFlight={this.props.addFlight}/>)
-		
+	let sortedFlight = this.state.fareInfos.slice()
+
 	if (this.state.filteredPrice) {
-		flight = this.sortPrice(flight)
+		sortedFlight = this.sortPrice(sortedFlight)
 	}
+
+	let flight = sortedFlight.map((info, index) => <Flight key={index} fareInfos={info} addFlight={this.props.addFlight}/>)
 
 		return (
 			<div>
-				<p className="price" onClick={this.togglePrice}>Price</p>
+			<br />
+				<center><p className="price" onClick={this.togglePrice}>Price</p></center>
 				<Card.Group>
 					{this.props.fareInfos.length === 0 ? null : flight }
 				</Card.Group>

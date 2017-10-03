@@ -9,12 +9,12 @@ const SearchFilter = (props) => {
 	// }
 	
 	return (
-		<div>
+		<div><center>
 			<br />
 			<br />
 			<p className="price" onClick={this.togglePrice}>Price</p>
 			
-		</div>
+		</center></div>
 	)
 }
 

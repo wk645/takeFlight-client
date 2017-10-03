@@ -67,6 +67,7 @@ export default class Profile extends React.Component {
 
 	togglePrice = () => {
 		this.setState({ filteredPrice: !this.state.filteredPrice })
+		console.log(this.state.filteredPrice)
 	}
 
 	toggleDate = () => {
@@ -94,6 +95,8 @@ export default class Profile extends React.Component {
 		if (this.state.filteredDate) {
 			filter = this.sortDate(filter)
 		}
+
+		console.log(filter)
 
 		let info = (
 			<div>

@@ -24,7 +24,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       
-      return <h1>Error occurred!</h1>;
+      this.msg.error("An Unknown error occurred with your search. Please try again!")
     }
     
   }
