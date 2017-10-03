@@ -1,22 +1,15 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { Card, Grid } from 'semantic-ui-react'
-import SavedFlights from './SavedFlights'
+import SavedFlightsContainer from './SavedFlightsContainer'
 import SavedFlight from '../adapters/savedFlight'
 import Dropzone from 'react-dropzone'
 import axios from 'axios'
 import AlertContainer from 'react-alert'
-import { Scrollbars } from 'react-custom-scrollbars'
-import 'react-big-calendar/lib/css/react-big-calendar.css'
-import BigCalendar from 'react-big-calendar'
-import moment from 'moment'
-
-BigCalendar.momentLocalizer(moment)
 
 export default class Profile extends React.Component {
-	constructor(props, context) {
-		super(props, context)
-		this.context = context
+	constructor(props) {
+		super(props)
 		this.state = {
 			user: props.user,
 			image: "https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg",
@@ -24,9 +17,6 @@ export default class Profile extends React.Component {
 			filteredPrice: false,
 			filteredDate: false
 		}
-		BigCalendar.setLocalizer(
-			BigCalendar.momentLocalizer(moment)
-		)
 	}
 
 	alertOptions = {
@@ -36,15 +26,6 @@ export default class Profile extends React.Component {
 	    time: 3000,
 	    transition: 'fade'
   	}
-
-  	event = [
-	  	{
-	  		'title': 'The Flatiron School',
-		    'allDay': true,
-		    'start': new Date(2017, 6, 26),
-		    'end': new Date(2017, 10, 6) 
-	  	}
-  	]
 
 	componentDidMount() {
 		const jwtToken = localStorage.getItem("jwt")
@@ -114,8 +95,6 @@ export default class Profile extends React.Component {
 			filter = this.sortDate(filter)
 		}
 
-		let savedFlights = filter.map((flight, index) => <SavedFlights key={index} currentUserFlights={flight} delete={this.deleteFlight} />)
-
 		let info = (
 			<div>
 			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
@@ -132,15 +111,10 @@ export default class Profile extends React.Component {
 				</center>
 					<h2 className="profile saved flights"><u>Your Saved Flights</u></h2>
 				<br />
-				<BigCalendar selectable popup events={this.event} startAccessor='startDate' endAccessor='endDate' defaultView="month" />
-				<br />
-				<br />
-					<p className="sort">Sort by:</p>
-					<p className="price" onClick={this.togglePrice}>Price</p>
-					<p className="date" onClick={this.toggleDate}>Departure Date</p>
-					<br />
 
-				<Scrollbars className="scroll" style={{ width: 1250, height: 500 }}><Grid relaxed columns={2}>{savedFlights}</Grid></Scrollbars>
+				<Grid relaxed columns={2}>
+				<SavedFlightsContainer currentUserFlights={this.state.currentUserFlights} filter={filter} delete={this.deleteFlight} toggleDate={this.toggleDate} togglePrice={this.togglePrice} />
+				</Grid>
 			</div>
 		)
 		return localStorage.getItem("jwt") ? info : <Redirect to="/login" />

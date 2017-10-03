@@ -35,7 +35,6 @@ class App extends Component {
     transition: 'fade'
   }
 
-
   fetchFlights = ({from, departDate, returnDate, top, budget, theme}) => {
     let options = {
       headers: {

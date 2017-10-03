@@ -40,24 +40,36 @@ div.rbc-calendar {
     width: 900px;
     height: 700px;
     margin: auto;
+    font-family: 'Roboto Slab', serif;
+}
+
+.rbc-btn-group > button:not(:first-child):not(:last-child) {
+    font-family: 'Roboto Slab', serif;
+}
+
+.rbc-btn-group > button:first-child:not(:last-child) {
+    font-family: 'Roboto Slab', serif; 
+}
+
+.rbc-btn-group > button:last-child:not(:first-child) {
+    font-family: 'Roboto Slab', serif;
 }
 
 .sort {
     font-family: 'Roboto Slab', serif;
-    margin-left: 293px;
+    margin: auto;
 
 }
 
 .price {
     font-family: 'Roboto Slab', serif;
-    margin-left: 293px;
+    margin-left: 0px;
     cursor: pointer;
 }
 
 .date {
     font-family: 'Roboto Slab', serif;
-    float: right;
-    margin-right: 998px;
+    margin-left: 50px;
     margin-top: -33px;
     cursor: pointer;
 }
@@ -205,3 +217,5 @@ body {
   background-color: #efefef;
   text-align: center;
 }
+
+/* css for ticket*/
