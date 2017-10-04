@@ -33,8 +33,6 @@ export default class SavedFlights extends React.Component {
 
 	render() {
 
-	console.log(this.props)
-
 		let filter = this.props.filter
 		let savedFlight = filter.map((flight, index) => <SavedFlight key={index} currentUserFlights={flight} delete={this.props.delete} user={this.props.user} origin={this.props.origin} />)
 

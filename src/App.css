@@ -12,11 +12,19 @@
 }
 
 .ui.basic.black.button {
-	margin-left: 18px;
+	margin-left: -550px;
     font-family: 'Roboto Slab', serif
 }
 
 .button {
+    margin-left: 390px;
+    position: relative !important;
+    left: 520px !important;
+    top: 1px !important;
+    height: auto !important;
+}
+
+.searchButton {
     margin-left: 390px;
 }
 
@@ -94,6 +102,8 @@ h2.ui.header {
 
 .ui.grid>.row {
     margin-right: 57px;
+    position: relative;
+    left: 151px;
 }
 
 div.airportSearch {
@@ -163,7 +173,7 @@ div.airportSearch {
 }
 
 .ui.button, .ui.buttons .button, .ui.buttons .or {
-    font-family: 'Roboto Slab', serif
+    font-family: 'Roboto Slab', serif;
 }
 
 .ui.card>.content>.header:not(.ui) {

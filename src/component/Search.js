@@ -95,6 +95,7 @@ export default class Search extends React.Component {
 		if (!!this.state.from && !!this.state.departDate && !!this.state.returnDate && !!this.state.theme && !!this.state.budget && !!this.state.top) 
 
 		{
+
 			this.props.fetchCB(this.state)
 			.then(res => this.props.history.push("/results"))
 		} else {
