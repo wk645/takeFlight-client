@@ -87,6 +87,8 @@ export default class Profile extends React.Component {
 
 	render() {
 
+		// console.log(this.props)
+
 		let flights = this.state.currentUserFlights.map(flight => flight)
 		let today = (new Date()).toISOString().split("T")[0]
 		let filter = flights.filter(flight => flight.departureDateTime.split("T")[0] >= today)
@@ -117,7 +119,7 @@ export default class Profile extends React.Component {
 				<br />
 
 				<Grid relaxed columns={2}>
-				<SavedFlightsContainer currentUserFlights={this.state.currentUserFlights} filter={filter} delete={this.deleteFlight} toggleDate={this.toggleDate} togglePrice={this.togglePrice} user={this.props.user} />
+				<SavedFlightsContainer currentUserFlights={this.state.currentUserFlights} filter={filter} delete={this.deleteFlight} toggleDate={this.toggleDate} togglePrice={this.togglePrice} user={this.props.user} origin={this.props.origin} />
 				</Grid>
 			</div>
 		)

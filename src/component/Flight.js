@@ -16,6 +16,8 @@ export default class Flight extends React.Component {
 
 	render() {
 
+		console.log("origin", this.props.origin)
+
 		return (
 			<Card className="searchResults" style={{width: 900}}>
 				<Card.Content>

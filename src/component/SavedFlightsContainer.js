@@ -4,7 +4,7 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import SavedFlight from './SavedFlight'
 // import { Scrollbars } from 'react-custom-scrollbars'
-import Events from '../Events'
+// import Events from '../Events'
 import { Grid } from 'semantic-ui-react'
 
 BigCalendar.momentLocalizer(moment)
@@ -22,14 +22,25 @@ export default class SavedFlights extends React.Component {
 		)
 	}
 
+	Events = [
+		  {
+		    'title': 'LAX',
+		    'allDay': true,
+		    'start': new Date(2017, 9, 10),
+		    'end': new Date(2017, 9, 14)
+		  }
+	]
+
 	render() {
 
+	console.log(this.props)
+
 		let filter = this.props.filter
-		let savedFlight = filter.map((flight, index) => <SavedFlight key={index} currentUserFlights={flight} delete={this.props.delete} user={this.props.user} />)
+		let savedFlight = filter.map((flight, index) => <SavedFlight key={index} currentUserFlights={flight} delete={this.props.delete} user={this.props.user} origin={this.props.origin} />)
 
 		return (
 			<div>
-			<BigCalendar selectable events={Events} defaultView='month' scrollToTime={new Date(1970, 1, 1, 6)}
+			<BigCalendar selectable events={this.Events} defaultView='month' scrollToTime={new Date(1970, 1, 1, 6)}
           defaultDate={new Date(2017, 9, 1)}
           onSelectEvent={event => alert(event.title)}
           onSelectSlot={(slotInfo) => alert(

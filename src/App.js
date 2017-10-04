@@ -55,7 +55,7 @@ class App extends Component {
     
     return fetch(`http://localhost:3000/api/v1/flight/`, options)
     .then(res => res.json())
-    .then(data => this.setState({ fareInfos: data }))
+    .then(data => this.setState({ fareInfos: data, origin: from }))
   }
 
   componentDidMount() {
@@ -108,8 +108,6 @@ class App extends Component {
 
   render() {
 
-    console.log(this.state.origin)
-
   return (
       <div>
         <NavBar currentUser={this.state.currentUser} />
@@ -119,12 +117,12 @@ class App extends Component {
         <Route exact path="/" render={({history}) => <MuiThemeProvider><Search history={history} fetchCB={this.fetchFlights} /></MuiThemeProvider>} />
         <Route exact path="/results" component={Back} />
         
-        <Route exact path="/results" render={({history}) => <MuiThemeProvider><Flights history={history} fareInfos={this.state.fareInfos} addFlight={this.addFlight} /></MuiThemeProvider> } />
+        <Route exact path="/results" render={({history}) => <MuiThemeProvider><Flights history={history} fareInfos={this.state.fareInfos} addFlight={this.addFlight} origin={this.state.origin} /></MuiThemeProvider> } />
         
         <Route exact path="/login" render={() => this.checkLoggedIn(<Login loginUser={this.loginUser} />)} />
         <Route exact path="/signup" render={() => this.checkLoggedIn(<SignUp signUpUser={this.signUpUser} />)} />
         <Route exact path="/profile" component={Back} />
-        <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} delete={this.deleteFlight} />} />
+        <Route exact path="/profile" render={() => <Profile user={this.state.currentUser} delete={this.deleteFlight} origin={this.state.origin} />} />
       </div>
     );
   }

@@ -25,7 +25,7 @@ export default class Flights extends React.Component {
 		sortedFlight = this.sortPrice(sortedFlight)
 	}
 
-	let flight = sortedFlight.map((info, index) => <Flight key={index} fareInfos={info} addFlight={this.props.addFlight}/>)
+	let flight = sortedFlight.map((info, index) => <Flight key={index} fareInfos={info} addFlight={this.props.addFlight} origin={this.props.origin} />)
 
 		return (
 

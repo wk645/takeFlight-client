@@ -177,6 +177,10 @@ div.airportSearch {
     border-radius: 3px;
 }
 
+.ui.card {
+    box-shadow: none !important;
+}
+
 .ui.card .meta, .ui.cards>.card .meta {
     font-family: 'Roboto Slab', serif;
 }
@@ -282,7 +286,7 @@ div.ui.cards {
 .seatNumber {
     position: relative;
     top: 26px;
-    left: 265px;
+    left: 257px;
 
 }
 
@@ -315,7 +319,10 @@ div.ui.cards {
 body{
   margin: 0;
   padding: 0;
-  background: #ced4dd;
+  background-image: url(sky.jpg);
+  background-attachment: fixed;
+  z-index: -1;
+  opacity: 0.95;
   width: 100%;
   /*line-height: -0.5715em; */
 }
@@ -503,7 +510,7 @@ body{
   top: 0px;
   width: 2px;
   height: 250px;
-  box-shadow: inset 0 0 0 #97d0ed,
+  box-shadow: inset 0 0 0 #B0B0B0,
     inset 0 -10px 0 #97d0ed,
     inset 0 -20px 0 #97d0ed,
     inset 0 -30px 0 #97d0ed,
