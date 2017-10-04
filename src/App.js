@@ -23,7 +23,9 @@ class App extends Component {
     this.state = {
       fareInfos: [],
       currentUser: {},
-      currentUserFlights: []
+      currentUserFlights: [],
+      origin: ""
+      // grab origin from the search component and pass down to SavedFlight
     }
   }
 
@@ -105,6 +107,9 @@ class App extends Component {
   }
 
   render() {
+
+    console.log(this.state.origin)
+
   return (
       <div>
         <NavBar currentUser={this.state.currentUser} />

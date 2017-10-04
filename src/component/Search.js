@@ -92,8 +92,6 @@ export default class Search extends React.Component {
 
 	handleSubmit = (event) => {
 
-		console.log(this.state)
-
 		if (!!this.state.from && !!this.state.departDate && !!this.state.returnDate && !!this.state.theme && !!this.state.budget && !!this.state.top) 
 
 		{
@@ -120,10 +118,10 @@ export default class Search extends React.Component {
 						<AutoComplete className="airportSearch" fullWidth={true} animated={true} name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.handleAirportDupes()} filter={(from, key) => (key.indexOf(from.toUpperCase()) !== -1)} openOnFocus={false} underlineStyle={{display: 'none'}} />
 					</Grid.Column>
 					<Grid.Column>
-						<DatePicker className="datePicker" selected={this.state.departDate} isClearable={true} minDate={moment()} onChange={this.handleDepartDate} placeholderText="Departure Date" />
+						<DatePicker className="datePicker" selected={this.state.departDate} minDate={moment()} onChange={this.handleDepartDate} placeholderText="Departure Date" />
 					</Grid.Column>
 					<Grid.Column>
-						<DatePicker placeholderText="Return Date" className="datePicker" isClearable={true} selected={this.state.returnDate} minDate={moment()} onChange={this.handleReturnDate} />
+						<DatePicker placeholderText="Return Date" className="datePicker" selected={this.state.returnDate} minDate={moment()} onChange={this.handleReturnDate} />
 					</Grid.Column>
 					<Grid.Column>
 						<Input type="text" name="budget" onChange={this.handleChange} value={this.state.budget} placeholder="Budget" />

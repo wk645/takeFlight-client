@@ -3,8 +3,9 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import SavedFlight from './SavedFlight'
-import { Scrollbars } from 'react-custom-scrollbars'
+// import { Scrollbars } from 'react-custom-scrollbars'
 import Events from '../Events'
+import { Grid } from 'semantic-ui-react'
 
 BigCalendar.momentLocalizer(moment)
 
@@ -24,7 +25,7 @@ export default class SavedFlights extends React.Component {
 	render() {
 
 		let filter = this.props.filter
-		let savedFlight = filter.map((flight, index) => <SavedFlight key={index} currentUserFlights={flight} delete={this.props.delete} />)
+		let savedFlight = filter.map((flight, index) => <SavedFlight key={index} currentUserFlights={flight} delete={this.props.delete} user={this.props.user} />)
 
 		return (
 			<div>
@@ -40,12 +41,10 @@ export default class SavedFlights extends React.Component {
 				<h3 className="sort">Sort by:</h3>
 				<p className="price" onClick={this.props.togglePrice}>Price</p>
 				<p className="date" onClick={this.props.toggleDate}>Departure Date</p>
-				<br />
-				<Scrollbars className="scroll" style={{ width: 930, height: 500 }}>{savedFlight}</Scrollbars>
-				<br />
-				<br />
+				<Grid relaxed columns={4}>{savedFlight}</Grid>
 			</div>
 
 		)
 	}
 }
+// <Scrollbars className="scroll" style={{ width: 930, height: 500 }}>{savedFlight}</Scrollbars>

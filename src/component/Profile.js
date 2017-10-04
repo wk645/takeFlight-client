@@ -117,7 +117,7 @@ export default class Profile extends React.Component {
 				<br />
 
 				<Grid relaxed columns={2}>
-				<SavedFlightsContainer currentUserFlights={this.state.currentUserFlights} filter={filter} delete={this.deleteFlight} toggleDate={this.toggleDate} togglePrice={this.togglePrice} />
+				<SavedFlightsContainer currentUserFlights={this.state.currentUserFlights} filter={filter} delete={this.deleteFlight} toggleDate={this.toggleDate} togglePrice={this.togglePrice} user={this.props.user} />
 				</Grid>
 			</div>
 		)
