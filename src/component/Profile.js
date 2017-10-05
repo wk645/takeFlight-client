@@ -74,7 +74,7 @@ export default class Profile extends React.Component {
 	}
 
 	toggleDate = () => {
-		this.setState({ filteredDate: !this.state.filteredDate })
+		this.setState({ filteredDate: true })
 	}
 
 	sortPrice = (flights) => {
@@ -87,7 +87,7 @@ export default class Profile extends React.Component {
 
 	render() {
 
-		// console.log(this.props)
+		// console.log(this.state.filteredDate)
 
 		let flights = this.state.currentUserFlights.map(flight => flight)
 		let today = (new Date()).toISOString().split("T")[0]

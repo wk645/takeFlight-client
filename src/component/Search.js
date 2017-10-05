@@ -92,12 +92,18 @@ export default class Search extends React.Component {
 
 	handleSubmit = (event) => {
 
-		if (!!this.state.from && !!this.state.departDate && !!this.state.returnDate && !!this.state.theme && !!this.state.budget && !!this.state.top) 
+		if ((!!this.state.from && !!this.state.departDate && !!this.state.returnDate && !!this.state.theme && !!this.state.budget && !!this.state.top) && (airportData.map(d => d.Destinations)[0].map(d => d.Destination).includes(this.state.from)) && (this.state.budget > 0) && (this.state.top > 1 && this.state.top <= 50)) 
 
 		{
 
 			this.props.fetchCB(this.state)
 			.then(res => this.props.history.push("/results"))
+
+			
+		} else if ((this.props.fetchCB(this.state).then(res => res.status === 404))) {
+
+			this.msg.error("An unknown error occurred during your search. Please try again!")
+
 		} else {
 			this.msg.error("An unknown error occurred during your search. Please try again!")
 		}

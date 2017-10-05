@@ -3,7 +3,7 @@ import { Card, Button } from 'semantic-ui-react'
 
 const SavedFlight = (props) => {
 
-	// console.log("In saved flights", props)
+	// console.log("In saved flights", props.currentUserFlights)
 
 	const handleClick = (event) => {
 		event.preventDefault()

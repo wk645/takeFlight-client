@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button } from 'semantic-ui-react'
 // import FloatingActionButton from 'material-ui/FloatingActionButton'
-import ContentAdd from 'material-ui/svg-icons/content/add'
+// import ContentAdd from 'material-ui/svg-icons/content/add'
 
 export default class Flight extends React.Component {
 
@@ -15,8 +15,6 @@ export default class Flight extends React.Component {
 	}
 
 	render() {
-
-		console.log(this.props)
 
 		return (
 				<div>
@@ -90,7 +88,7 @@ export default class Flight extends React.Component {
           </div>
           <div className="barcode"></div>
           <div className="barcode slip"></div>
-      <Button className="button" onClick={this.handleClick}><ContentAdd /></Button>
+      <Button className="button" onClick={this.handleClick}>+</Button>
         </div>
       </div>
 </Card>
