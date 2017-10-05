@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 .title {;
   font-size: 65px;
@@ -55,7 +56,7 @@ div.rbc-calendar {
     width: 900px;
     height: 700px;
     margin: auto;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .rb-toolbar .rb-toolbar-label {
@@ -106,9 +107,22 @@ h2.ui.header {
 }
 
 .ui.grid>.row {
-    margin-right: 57px;
+    /*margin-right: 57px;*/
     position: relative;
-    left: 151px;
+    justify-content: auto !important;
+}
+
+.ui.grid>.row>.column {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    vertical-align: top;
+}
+
+.rbc-row-bg {
+    background-color: #adccff;
 }
 
 
@@ -262,6 +276,14 @@ div.ui.cards {
 	opacity: 0.95;
 }*/
 
+.loginHeader {
+    font-family: 'Roboto Slab', serif;
+}
+
+.signUpHeader {
+    font-family: 'Roboto Slab', serif;
+}
+
 .footer {
   position: absolute;
   right: 0;
@@ -293,16 +315,34 @@ div.ui.cards {
     top: 26px;
 }
 
+.searchPassengerName {
+    right: -35px ;
+    position: relative;
+    top: 26px;
+}
+
 .airlineName {
     position: relative;
     top: 26px;
     right: 19px;
 }
 
+.searchAirlineName {
+    position: relative;
+    top: 26px;
+    left: 140px;
+}
+
 .gateNumber {
     position: relative;
     top: 26px;
     left: 53px;
+}
+
+.searchGateNumber {
+    position: relative;
+    top: 26px;
+    left: 210px;
 }
 
 .seatNumber {
@@ -312,10 +352,22 @@ div.ui.cards {
 
 }
 
+.searchSeatNumber {
+    position: relative;
+    top: 26px;
+    left: 255px;    
+}
+
 .boardingDate {
     position: relative;
     top: 77px;
     right: 262px;
+}
+
+.searchBoardingDate {
+    position: relative;
+    top: 77px;
+    right: 103px;  
 }
 
 .airlineStub {
@@ -324,10 +376,22 @@ div.ui.cards {
     left: 73px;
 }
 
+.searchAirlineStub {
+    position: relative;
+    top: 26px;
+    left: 233px;
+}
+
 .seatStub {
     position: relative;
     top: 26px;
     left: 179px;
+}
+
+.searchSeatStub {
+    position: relative;
+    top: 26px;
+    left: 334px;
 }
 
 .nameStub {
@@ -336,11 +400,35 @@ div.ui.cards {
     left: 51px; 
 }
 
+.searchNameStub {
+    position: relative;
+    top: 77px;
+    left: 205px; 
+}
+
+.addButton {
+
+}
+
+/*.loginPassword {
+    width: 459px !important;
+}*/
+
 /* css for ticket*/
 
 .ui.button.Delete {
     margin-right: 525px;
 }
+
+.ui.button.addButton {
+
+}
+
+.ui.button.loginButton {
+    
+}
+
+
 
 body{
   margin: 0;
@@ -835,7 +923,7 @@ body{
 .sfoslip{
   font-size: 30px;
   top: 20px;
-  left: 530px;
+  left: 535px;
 }
 
 .planeslip{

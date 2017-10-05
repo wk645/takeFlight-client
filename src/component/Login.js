@@ -39,20 +39,23 @@ export default class SignUp extends React.Component {
 		return (
 			<div>
 			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-				<center><h2>Login Page</h2></center>
+				<Grid columns={2}>
+				<Grid.Row>
+				<Grid.Column width={4}/>
+				<Grid.Column width={4}>
+				<h2 className="loginHeader">Login Page</h2>
 				<br />
-				<Grid centered columns={4}>
-				<Grid.Column>
 				<Form onSubmit={this.handleSubmit}>				
 					<Form.Field>
-					<input type="text" name="username" onChange={this.handleChange} placeholder="username" />
+					<input type="text" className="loginName" name="username" onChange={this.handleChange} placeholder="username" />
 					</Form.Field>
 					<Form.Field>
-					<input type="password" name="password" onChange={this.handleChange} placeholder="password" />
+					<input type="password" className="loginPassword" name="password" onChange={this.handleChange} placeholder="password" />
 					</Form.Field>
-					<center><Button type="submit">Login</Button></center>
+					<center><Button className="loginButton" type="submit">Login</Button></center>
 				</Form>
 				</Grid.Column>
+				</Grid.Row>
 				</Grid>
 			</div>
 		)

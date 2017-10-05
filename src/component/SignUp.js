@@ -39,10 +39,13 @@ export default class SignUp extends React.Component {
 		return (
 			<div>
 			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-				<center><h2>Sign Up Page</h2></center>
+
+				<Grid columns={2}>
+				<Grid.Row>
+				<Grid.Column width={4}/>
+				<Grid.Column width={4}>
+				<h2 className="signUpHeader">Sign Up Page</h2>
 				<br />
-				<Grid centered columns={4}>
-				<Grid.Column>
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Field>
 					<input type="text" name="fullname" onChange={this.handleChange} placeholder="full name" />
@@ -59,6 +62,7 @@ export default class SignUp extends React.Component {
 					<center><Button type="submit">Sign up</Button></center>
 				</Form>
 				</Grid.Column>
+				</Grid.Row>
 				</Grid>
 			</div>
 		)

@@ -3,9 +3,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import SavedFlight from './SavedFlight'
-// import { Scrollbars } from 'react-custom-scrollbars'
-// import Events from '../Events'
-import { Grid } from 'semantic-ui-react'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 BigCalendar.momentLocalizer(moment)
 
@@ -52,10 +50,13 @@ export default class SavedFlights extends React.Component {
 				<p onClick={this.props.togglePrice}>Price</p>
 				<p onClick={this.props.toggleDate}>Departure Date</p>
 				</center></div>
-				<Grid relaxed columns={1}>{savedFlight}</Grid>
+				<br />
+				<Scrollbars className="scroll" style={{ width: 930, height: 500 }}>{savedFlight}</Scrollbars>
 			</div>
 
 		)
 	}
 }
+
+				// <Grid relaxed columns={1}>{savedFlight}</Grid>
 // <Scrollbars className="scroll" style={{ width: 930, height: 500 }}>{savedFlight}</Scrollbars>

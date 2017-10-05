@@ -68,27 +68,26 @@ export default class Flight extends React.Component {
             <span className="sfo sfoslip">{this.props.fareInfos.destination}</span>
             <div className="sub-content">
               <span className="name">PASSENGER NAME</span>
-              <span className="passengerName"></span>
-              <span>{this.props.user.fullna}</span>
+              <span className="searchPassengerName">{this.props.user.fullname}</span>
               <span className="flight">FLIGHT N&deg;</span>
-              <span className="airlineName">{this.props.fareInfos.airline}</span>
+              <span className="searchAirlineName">{this.props.fareInfos.airline}</span>
               <span className="gate">GATE</span>
-              <span className="gateNumber">00</span>
+              <span className="searchGateNumber">00</span>
               <span className="seat">PRICE</span>
-              <span className="seatNumber">${this.props.fareInfos.fare}</span>
+              <span className="searchSeatNumber">${this.props.fareInfos.fare}</span>
               <span className="boardingtime">BOARDING TIME</span>
-              <span className="boardingDate">{this.props.fareInfos.departureDateTime.split("T")[0]}</span>
+              <span className="searchBoardingDate">{this.props.fareInfos.departureDateTime.split("T")[0]}</span>
               <span className="flight flightslip">FLIGHT N&deg;</span>
-              <span className="airlineStub">{this.props.fareInfos.airline}</span>
+              <span className="searchAirlineStub">{this.props.fareInfos.airline}</span>
               <span className="seat seatslip">SEAT</span>
-              <span className="seatStub">00</span>
+              <span className="searchSeatStub">00</span>
               <span className="name nameslip">PASSENGER NAME</span>
-              <span className="nameStub"></span>
+              <span className="searchNameStub">{this.props.user.fullname}</span>
             </div>
           </div>
           <div className="barcode"></div>
           <div className="barcode slip"></div>
-      <Button className="button" onClick={this.handleClick}>+</Button>
+      <Button className="addButton" onClick={this.handleClick}>+</Button>
         </div>
       </div>
 </Card>

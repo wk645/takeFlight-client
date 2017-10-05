@@ -55,8 +55,18 @@ class App extends Component {
 
     
     return fetch(`http://localhost:3000/api/v1/flight/`, options)
-    .then(res => res.json())
-    .then(data => this.setState({ fareInfos: data, origin: from }))
+    .then(res => {
+      if (res.status === 400) {
+        this.msg.error("An unknown error occurred during your search. Please try again!")
+      } else {
+     return res.json()
+      }
+    })
+    .then(data => {
+      if (data) {
+        this.setState({ fareInfos: data, origin: from })
+      }
+    }) 
   }
 
   componentDidMount() {
