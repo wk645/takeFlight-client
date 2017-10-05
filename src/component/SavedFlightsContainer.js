@@ -48,9 +48,11 @@ export default class SavedFlights extends React.Component {
 				<br />
 				<br />
 				<h3 className="sort">Sort by:</h3>
-				<p className="price" onClick={this.props.togglePrice}>Price</p>
-				<p className="date" onClick={this.props.toggleDate}>Departure Date</p>
-				<Grid relaxed columns={4}>{savedFlight}</Grid>
+				<div className="sorts"><center>
+				<p onClick={this.props.togglePrice}>Price</p>
+				<p onClick={this.props.toggleDate}>Departure Date</p>
+				</center></div>
+				<Grid relaxed columns={1}>{savedFlight}</Grid>
 			</div>
 
 		)

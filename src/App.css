@@ -25,6 +25,12 @@
     height: auto !important;
 }
 
+.sorts {
+    position: relative;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+}
+
 .searchButton {
     margin-left: 390px;
 }
@@ -52,6 +58,10 @@ div.rbc-calendar {
     font-family: 'Roboto Slab', serif;
 }
 
+.rb-toolbar .rb-toolbar-label {
+    margin-left: 10px;
+}
+
 .rbc-btn-group > button:not(:first-child):not(:last-child) {
     font-family: 'Roboto Slab', serif;
 }
@@ -70,27 +80,21 @@ div.rbc-calendar {
 
 }
 
-.price {
-    font-family: 'Roboto Slab', serif;
-    margin-left: 0px;
-    cursor: pointer;
-}
-
 .priceSearch {
     font-family: 'Roboto Slab', serif;
     margin-left: 0px;
     cursor: pointer;
 }
 
-.date {
-    font-family: 'Roboto Slab', serif;
-    margin-left: 50px;
-    margin-top: -33px;
-    cursor: pointer;
-}
 
 .profileImage {
     cursor: pointer;
+}
+
+img.ui.image {
+    width: 250px;
+    height: 250px;
+    object-fit: contain
 }
 
 .searchResults {
@@ -106,6 +110,7 @@ h2.ui.header {
     position: relative;
     left: 151px;
 }
+
 
 div.airportSearch {
     width: 177px !important;
@@ -181,11 +186,17 @@ div.airportSearch {
     font-family: 'Roboto Slab', serif;
 }
 
+.ui.button.addPicture {
+    margin-right: 1038px;
+}
+
+.ui.button.searchButton {
+    margin-right: 1038px;
+}
+
 .profile.saved.flights {
     font-family: 'Roboto Slab', serif;
-    margin-left: 293px;
-    border-left: 6px solid white;
-    border-radius: 3px;
+    margin-right: 679px;
 }
 
 .ui.card {
@@ -267,7 +278,7 @@ div.ui.cards {
 }
 
 .ui.grid>* {
-    margin-left: -97px;
+    margin-left: 316px
 }
 
 .ui.card:first-child {
@@ -277,7 +288,7 @@ div.ui.cards {
 /**/
 
 .passengerName {
-    left: 33px;
+    right: 127px ;
     position: relative;
     top: 26px;
 }
@@ -285,47 +296,51 @@ div.ui.cards {
 .airlineName {
     position: relative;
     top: 26px;
-    left: 140px;
+    right: 19px;
 }
 
 .gateNumber {
     position: relative;
     top: 26px;
-    left: 211px;
+    left: 53px;
 }
 
 .seatNumber {
     position: relative;
     top: 26px;
-    left: 257px;
+    right: -98px;
 
 }
 
 .boardingDate {
     position: relative;
     top: 77px;
-    right: 88px;
+    right: 262px;
 }
 
 .airlineStub {
     position: relative;
     top: 26px;
-    left: 247px;
+    left: 73px;
 }
 
 .seatStub {
     position: relative;
     top: 26px;
-    left: 348px;
+    left: 179px;
 }
 
 .nameStub {
     position: relative;
     top: 77px;
-    left: 220px; 
+    left: 51px; 
 }
 
 /* css for ticket*/
+
+.ui.button.Delete {
+    margin-right: 525px;
+}
 
 body{
   margin: 0;

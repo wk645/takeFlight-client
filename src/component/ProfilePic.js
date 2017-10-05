@@ -67,6 +67,7 @@ export default class ProfilePic extends React.Component {
 			<Dropzone className="dropzone" onDrop={this.handleDrop} multiple accept="image/*">
 			<p className="profileImage">Change Profile Image</p>
 			</Dropzone>
+			<br />
 			{this.state.image.length > 0 ? <img src={this.state.image} alt="" width="250px" height="250px"/> : null}
 			<input type="submit" />
 			<button onClick={this.handleClick}>Cancel</button>

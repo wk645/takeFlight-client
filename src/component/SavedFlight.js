@@ -81,7 +81,7 @@ const SavedFlight = (props) => {
           </div>
           <div className="barcode"></div>
           <div className="barcode slip"></div>
-			<Button className="button" onClick={handleClick}>Delete</Button>  
+			<Button className="Delete" onClick={handleClick}>Delete</Button>  
         </div>
       </div>
 </Card>

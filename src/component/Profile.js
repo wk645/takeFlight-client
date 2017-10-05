@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Grid } from 'semantic-ui-react'
+import { Image, Button } from 'semantic-ui-react'
 import SavedFlightsContainer from './SavedFlightsContainer'
 import SavedFlight from '../adapters/savedFlight'
 import ProfilePic from './ProfilePic'
@@ -100,42 +100,28 @@ export default class Profile extends React.Component {
 			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
 				<center>
 					<br />
-					{this.state.user.image_url != null ? <img src={this.state.user.image_url} alt="" width="250px" height="250px" /> : <img src={this.state.image} alt="" width="250px" height="250px" />}
+					{this.state.user.image_url != null ? <Image src={this.state.user.image_url} alt="" /> : <Image className="profilePicture" src={this.state.image} alt="" />}
 					<br />
 
-					{this.state.user ? <button onClick={this.handleClick} >Add Profile Picture</button> : null }
+					{this.state.user ? <Button className="addPicture" onClick={this.handleClick} >Add Profile Picture</Button> : null }
 
 					<br />
 
 					{this.state.showForm ? <ProfilePic hideForm={this.hideForm} submit={this.handleSubmit} formSubmit={this.formSubmit} /> : null }
+
+					<br />
 
 					<p className="username">Name: {this.props.user.fullname}</p>
 					<p className="username">Username: {this.props.user.username}</p>
 					<p className="username">E-mail: {this.props.user.email}</p>
 					<br />
 				</center>
-					<h2 className="profile saved flights"><u>Your Saved Flights</u></h2>
+					<center><h2 className="profile saved flights"><u>Your Saved Flights</u></h2></center>
 				<br />
 
-				<Grid relaxed columns={2}>
-				<SavedFlightsContainer currentUserFlights={this.state.currentUserFlights} filter={filter} delete={this.deleteFlight} toggleDate={this.toggleDate} togglePrice={this.togglePrice} user={this.props.user} origin={this.props.origin} />
-				</Grid>
+				<center><SavedFlightsContainer currentUserFlights={this.state.currentUserFlights} filter={filter} delete={this.deleteFlight} toggleDate={this.toggleDate} togglePrice={this.togglePrice} user={this.props.user} origin={this.props.origin} /></center>
 			</div>
 		)
 		return localStorage.getItem("jwt") ? info : <Redirect to="/login" />
 	}
 }
-
-// <form className="form" onSubmit={this.handleDrop}>
-// 					<input type="file" name="avatar" onChange={ this.uploadFile } ref="imageInput" accept="image/png, image/jpeg"  multiple="false" />
-// 					</form>
-
-// <form className="picture" onSubmit={this.handleSubmit}>
-// <Dropzone className="dropzone" onDrop={this.handleDrop} multiple accept="image/*">
-// <p className="profileImage">Change Profile Image</p>
-// </Dropzone>
-// {this.state.image.length > 0 ? <img src={this.state.image} width="500px" height="500px" /> : null }
-// <input type="submit" value="submit" />
-// </form>
-
-// <Card className="profilePicture" style={{width: 250, height: 250}} image={this.state.image} />
