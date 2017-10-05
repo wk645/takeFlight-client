@@ -12,8 +12,9 @@
 }
 
 .ui.basic.black.button {
-	margin-left: -550px;
-    font-family: 'Roboto Slab', serif
+	margin-left: -506px;
+    font-family: 'Roboto Slab', serif;
+    height: 38px !important;
 }
 
 .button {
@@ -38,7 +39,7 @@ i.icon.sort.ascending:before {
 }
 
 .ui.relaxed.grid {
-	margin-left: 280px;
+	margin-left: 27px;
 	margin-right: 0;
 	margin-bottom: 0;
 	margin-top: 0;

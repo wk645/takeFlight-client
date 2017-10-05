@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, Container, Header, Dropdown, Grid } from 'semantic-ui-react'
+import { Input, Button, Container, Header, Dropdown, Grid} from 'semantic-ui-react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import airportData from '../data'
@@ -119,7 +119,7 @@ export default class Search extends React.Component {
 		return (
 		<div>
 		<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-			<Grid columns='equal'>
+			<Grid relaxed columns={7}>
 				<Grid.Row>
 					<Grid.Column>
 						<AutoComplete className="airportSearch" fullWidth={true} animated={true} name="from" hintText="Airport Code" from={this.state.from} onUpdateInput={this.handleUpdateInput} dataSource={this.handleAirportDupes()} filter={(from, key) => (key.indexOf(from.toUpperCase()) !== -1)} openOnFocus={false} underlineStyle={{display: 'none'}} />
@@ -151,10 +151,10 @@ export default class Search extends React.Component {
 			</Grid>
 	  <Container text>
 	    <Header as='h2'>How to!</Header>
-	    <p className="Description">takeFlight allows our users to plan for trips by formulating a destination from the help of a few things: the <b>departing location</b>, <b>date of travel</b>, <b>theme</b>, <b>budget</b>, and you can also narrow the results to get a list of <b>1~50</b> recommendations.</p>
+	   <center><p className="Description">takeFlight allows our users to plan for trips by formulating a destination from the help of a few things: the <b>departing location</b>, <b>date of travel</b>, <b>theme</b>, <b>budget</b>, and you can also narrow the results to get a list of <b>1~50</b> recommendations.</p></center>
 	    <br />
 	    <br />
-	  </Container>
+	 </Container>
 		</div>
 		)
 	}

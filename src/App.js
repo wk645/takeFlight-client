@@ -25,7 +25,6 @@ class App extends Component {
       currentUser: {},
       currentUserFlights: [],
       origin: ""
-      // grab origin from the search component and pass down to SavedFlight
     }
   }
 

@@ -1,10 +1,9 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Card, Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import SavedFlightsContainer from './SavedFlightsContainer'
 import SavedFlight from '../adapters/savedFlight'
-import Dropzone from 'react-dropzone'
-import axios from 'axios'
+import ProfilePic from './ProfilePic'
 import AlertContainer from 'react-alert'
 
 export default class Profile extends React.Component {
@@ -13,6 +12,7 @@ export default class Profile extends React.Component {
 		this.state = {
 			user: props.user,
 			image: "https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg",
+			showForm: false,
 			currentUserFlights: [],
 			filteredPrice: false,
 			filteredDate: false
@@ -25,6 +25,20 @@ export default class Profile extends React.Component {
 	    theme: 'dark',
 	    time: 3000,
 	    transition: 'fade'
+  	}
+
+  	handleClick = () => {
+  		this.setState({ showForm: true })
+  	}
+
+	hideForm = () => {
+		this.setState({
+			showForm: false
+		})
+	}
+
+  	formSubmit = (profile) => {
+  		this.setState({ showForm: false })
   	}
 
 	componentDidMount() {
@@ -40,30 +54,10 @@ export default class Profile extends React.Component {
 
 	deleteFlight = (flight) => {
     	SavedFlight.deleteFlight(flight.id).then(json => {
-    		this.msg.show("This flight has been removed from your list!", )
+    		this.msg.show("This flight has been removed from your list!",)
     		this.setState({ user: json.user, currentUserFlights: json.flights })
     	})
  	}
-
-	handleDrop = (files) => {
-	  const uploaders = files.map(file => {
-	    const formData = new FormData();
-	    formData.append("file", file);
-	    formData.append("tags", `codeinfuse, medium, gist`);
-	    formData.append("upload_preset", "zztcggwp");
-	    formData.append("api_key", "521129587314161");
-	    formData.append("timestamp", (Date.now() / 1000) | 0);
-	    
-
-	    return axios.post("https://api.cloudinary.com/v1_1/zoeykim94/image/upload", formData, {
-	      headers: { "X-Requested-With": "XMLHttpRequest" },
-	    }).then(response => this.setState({ image: response.data.url })) 
-	  });
-
-	  axios.all(uploaders).then(() => {
-	   this.msg.success("Your profile has been changed!")
-	  });
-	}
 
 	handleSubmit = (event) => {
 		event.preventDefault()
@@ -74,7 +68,7 @@ export default class Profile extends React.Component {
 	}
 
 	toggleDate = () => {
-		this.setState({ filteredDate: true })
+		this.setState({ filteredDate: !this.state.filteredDate })
 	}
 
 	sortPrice = (flights) => {
@@ -106,14 +100,19 @@ export default class Profile extends React.Component {
 			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
 				<center>
 					<br />
-					<Card className="profilePicture" style={{width: 250, height: 250}} image={this.state.image} />
+					{this.state.user.image_url != null ? <img src={this.state.user.image_url} alt="" width="250px" height="250px" /> : <img src={this.state.image} alt="" width="250px" height="250px" />}
+					<br />
+
+					{this.state.user ? <button onClick={this.handleClick} >Add Profile Picture</button> : null }
+
+					<br />
+
+					{this.state.showForm ? <ProfilePic hideForm={this.hideForm} submit={this.handleSubmit} formSubmit={this.formSubmit} /> : null }
+
 					<p className="username">Name: {this.props.user.fullname}</p>
 					<p className="username">Username: {this.props.user.username}</p>
 					<p className="username">E-mail: {this.props.user.email}</p>
 					<br />
-					<Dropzone className="dropzone" onDrop={this.handleDrop} multiple accept="image/*">
-					<p className="profileImage">Change Profile Image</p>
-					</Dropzone>
 				</center>
 					<h2 className="profile saved flights"><u>Your Saved Flights</u></h2>
 				<br />
@@ -138,3 +137,5 @@ export default class Profile extends React.Component {
 // {this.state.image.length > 0 ? <img src={this.state.image} width="500px" height="500px" /> : null }
 // <input type="submit" value="submit" />
 // </form>
+
+// <Card className="profilePicture" style={{width: 250, height: 250}} image={this.state.image} />
