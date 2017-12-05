@@ -36,13 +36,6 @@ export default class SavedFlights extends React.Component {
 
 		return (
 			<div>
-			<BigCalendar selectable events={this.Events} defaultView='month' scrollToTime={new Date(1970, 1, 1, 6)}
-          defaultDate={new Date(2017, 9, 1)}
-          onSelectEvent={event => alert(event.title)}
-          onSelectSlot={(slotInfo) => alert(
-            `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
-            `\nend: ${slotInfo.end.toLocaleString()}`
-          )} />
 				<br />
 				<br />
 				<h3 className="sort">Sort by:</h3>

@@ -29,7 +29,7 @@ export default class Flights extends React.Component {
 
 		return (
 
-			<div>
+			<div className="flightsContainer">
 			<br />
 				<center><h3 className="priceSearch" onClick={this.togglePrice}>Price</h3></center>
 				<Card.Group>

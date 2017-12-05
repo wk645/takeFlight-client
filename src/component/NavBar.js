@@ -8,7 +8,7 @@ const NavBar = ({currentUser}) => {
 
 	const logLinks = (localStorage.getItem('jwt')) ? 
 		<Menu.Menu position="right">
-			<NavLink className='item nav-item' to='/profile'>{currentUser.username}</NavLink>
+			<NavLink className='item nav-item' to='/profile'>Profile</NavLink>
 			<NavLink className='item nav-item' activeClassName="" to="/" onClick={Auth.logOut}>Log out</NavLink>
 		</Menu.Menu> :
 

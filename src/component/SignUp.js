@@ -59,7 +59,7 @@ export default class SignUp extends React.Component {
 					<Form.Field>
 					<input type="password" name="password" onChange={this.handleChange} placeholder="password" />
 					</Form.Field>
-					<center><Button type="submit">Sign up</Button></center>
+					<Button className="signup" type="submit">Sign up</Button>
 				</Form>
 				</Grid.Column>
 				</Grid.Row>

@@ -5,11 +5,15 @@ import Flights from './component/Flights'
 import Search from './component/Search'
 import { Route, Redirect } from 'react-router-dom'
 import SignUp from './component/SignUp'
+
 import Auth from './adapters/auth'
+
 import NavBar from './component/NavBar'
 import Login from './component/Login'
 import Profile from './component/Profile'
+
 import SavedFlight from './adapters/savedFlight'
+
 import Back from './component/Back'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import ScrollUpButton from 'react-scroll-up-button'
@@ -52,11 +56,9 @@ class App extends Component {
       })
     }
 
-
-    
     return fetch(`http://localhost:3000/api/v1/flight/`, options)
     .then(res => {
-      if (res.status === 400) {
+      if (res.status === 400 || res.status === 500 || res.status === 404) {
         this.msg.error("An unknown error occurred during your search. Please try again!")
       } else {
      return res.json()

@@ -1,6 +1,6 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
-import axios from 'axios'
+// import axios from 'axios'
 import UserInfo from '../adapters/userInfo'
 import AlertContainer from 'react-alert'
 
@@ -21,25 +21,26 @@ export default class ProfilePic extends React.Component {
 	    transition: 'fade'
   	}
 
-	handleDrop = (files) => {
-	  const uploaders = files.map(file => {
-	    const formData = new FormData();
-	    formData.append("file", file);
-	    formData.append("tags", `codeinfuse, medium, gist`);
-	    formData.append("upload_preset", "zztcggwp");
-	    formData.append("api_key", "521129587314161");
-	    formData.append("timestamp", (Date.now() / 1000) | 0);
+	// handleDrop = (files) => {
+	//   const uploaders = files.map(file => {
+	//     const formData = new FormData();
+	//     formData.append("file", file);
+	//     formData.append("tags", `codeinfuse, medium, gist`);
+	//     formData.append("upload_preset", "zztcggwp");
+	//     formData.append("api_key", "521129587314161");
+	//     formData.append("timestamp", (Date.now() / 1000) | 0);
 	    
 
-	    return axios.post("https://api.cloudinary.com/v1_1/zoeykim94/image/upload", formData, {
-	      headers: { "X-Requested-With": "XMLHttpRequest" },
-	    }).then(response => this.setState({ image: response.data.url })) 
-	  });
+	//     return axios.post("https://api.cloudinary.com/v1_1/zoeykim94/image/upload", formData, {
+	//       headers: { "X-Requested-With": "XMLHttpRequest" },
+	//     })
+	//     .then(response => this.setState({ image: response.data.url })) 
+	//   });
 
-	  axios.all(uploaders).then(() => {
-	   this.msg.success("Your profile has been changed!")
-	  });
-	}
+	  // axios.all(uploaders).then(() => {
+	  //  this.msg.success("Your profile has been changed!")
+	  // });
+	// }
 
 	handleClick = () => {
 		this.props.hideForm()
@@ -48,14 +49,12 @@ export default class ProfilePic extends React.Component {
 	handleSubmit = (event) => {
 		event.preventDefault()
 		this.props.hideForm()
-		this.addPicture(this.state.image)
+		this.addPicture()
 	}
 
 	addPicture = () => {
  		UserInfo.sendUserInfo(this.state.image).then(json => {
- 			console.log(json)
- 			// this.msg.show("Your profile picture has been updated!",)
- 			this.setState({ user: json.user, image: json.image_url })
+ 			this.setState({image: json.image_url })
  		})
  	}
 

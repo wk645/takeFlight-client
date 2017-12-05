@@ -52,7 +52,7 @@ export default class SignUp extends React.Component {
 					<Form.Field>
 					<input type="password" className="loginPassword" name="password" onChange={this.handleChange} placeholder="password" />
 					</Form.Field>
-					<center><Button className="loginButton" type="submit">Login</Button></center>
+					<Button className="loginButton" type="submit">Login</Button>
 				</Form>
 				</Grid.Column>
 				</Grid.Row>

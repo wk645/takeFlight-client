@@ -95,14 +95,18 @@ export default class Search extends React.Component {
 		let returnDateDuration = new Date(this.state.returnDate)
 		let departDateDuration = new Date(this.state.departDate)
 		let duration = (Math.abs(returnDateDuration - departDateDuration) / 86400000)
-		console.log(duration)
 
-
-		if ((!!this.state.from && !!this.state.departDate && !!this.state.returnDate && !!this.state.theme && !!this.state.budget && !!this.state.top) && (airportData.map(d => d.Destinations)[0].map(d => d.Destination).includes(this.state.from)) && (this.state.budget > 0) && (this.state.top > 1 && this.state.top <= 50) && (duration <= 14)) 
+		if	((!!this.state.from && !!this.state.departDate && !!this.state.returnDate && !!this.state.theme && !!this.state.budget && !!this.state.top) && (airportData.map(d => d.Destinations)[0].map(d => d.Destination).includes(this.state.from)) && (this.state.budget > 0) && (this.state.top > 1 && this.state.top <= 50)) 
 		{
 
 			this.props.fetchCB(this.state)
 			.then(res => this.props.history.push("/results"))
+
+		} else if (duration > 14) {
+			this.msg.error("Your return date has to be within 14 days after the departure date!")
+
+		} else if (this.state.budget < 150) {
+			this.msg.error("Your budget is too low! Please enter a higher amount.")
 
 		} else {
 
