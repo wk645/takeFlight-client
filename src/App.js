@@ -82,7 +82,7 @@ class App extends Component {
     return Auth.signup(userParams)
     .then(res => {
       if (res.success) {
-        localStorage.setItem('jwt', res.jwt)
+        tlocalStorage.setItem('jwt', res.jwt)
         this.msg.show('Welcome to takeFlight!')
         this.setState({ currentUser: res.user })
       } else {
