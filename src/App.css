@@ -289,6 +289,7 @@ div.ui.cards {
 
 .signUpHeader {
     font-family: 'Roboto Slab', serif;
+    text-align: center;
 }
 
 .ui.button.signup {

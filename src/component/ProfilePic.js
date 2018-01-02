@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
 // import axios from 'axios'
-import UserInfo from '../adapters/userInfo'
+// import UserInfo from '../adapters/userInfo'
 import AlertContainer from 'react-alert'
 
 export default class ProfilePic extends React.Component {
@@ -52,11 +52,11 @@ export default class ProfilePic extends React.Component {
 		this.addPicture()
 	}
 
-	addPicture = () => {
- 		UserInfo.sendUserInfo(this.state.image).then(json => {
- 			this.setState({image: json.image_url })
- 		})
- 	}
+	// addPicture = () => {
+ // 		UserInfo.sendUserInfo(this.state.image).then(json => {
+ // 			this.setState({image: json.image_url })
+ // 		})
+ // 	}
 
 	render() {
 		return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button, Grid } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import AlertContainer from 'react-alert'
 
 export default class SignUp extends React.Component {
@@ -39,31 +39,23 @@ export default class SignUp extends React.Component {
 		return (
 			<div>
 			<AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-
-				<Grid columns={2}>
-				<Grid.Row>
-				<Grid.Column width={4}/>
-				<Grid.Column width={4}>
 				<h2 className="signUpHeader">Sign Up Page</h2>
 				<br />
-				<Form onSubmit={this.handleSubmit}>
+				<Form onSubmit={this.handleSubmit} >
 					<Form.Field>
-					<input type="text" name="fullname" onChange={this.handleChange} placeholder="full name" />
+					<Form.Input type="text" name="fullname" onChange={this.handleChange} placeholder="full name" width={6} />
 					</Form.Field>
 					<Form.Field>
-					<input type="text" name="email" onChange={this.handleChange} placeholder="e-mail address" />
+					<Form.Input type="text" name="email" onChange={this.handleChange} placeholder="e-mail address" width={6} />
 					</Form.Field>
 					<Form.Field>
-					<input type="text" name="username" onChange={this.handleChange} placeholder="username" />
+					<Form.Input type="text" name="username" onChange={this.handleChange} placeholder="username" width={6} />
 					</Form.Field>
 					<Form.Field>
-					<input type="password" name="password" onChange={this.handleChange} placeholder="password" />
+					<Form.Input type="password" name="password" onChange={this.handleChange} placeholder="password" width={6} />
 					</Form.Field>
 					<Button className="signup" type="submit">Sign up</Button>
 				</Form>
-				</Grid.Column>
-				</Grid.Row>
-				</Grid>
 			</div>
 		)
 	}
